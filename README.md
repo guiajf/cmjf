@@ -89,6 +89,16 @@ A acurácia do modelo avaliado com os dados de validação alcançou 0,9459:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/dc7afbcb-254e-434f-93f2-298f85a51497)
 
+Realizamos a predição com os dados de teste:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/1c9e608e-5ab9-4319-88fa-1f5f096e69c5)
+
+Contudo, ao calcularmos a métrica de desempenho definida inicialmente no modelo, qual seja, a
+*acurácia*, após a predição com os dados de teste, observamos que houve uma queda considerável do
+indicador, calculado através da função **classification_report:**
+
+![image](https://github.com/guiajf/malaria/assets/152413615/81fb2f7b-7a7a-4939-9ee6-03e34e20a544)
+
 
 
 
