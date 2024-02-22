@@ -19,5 +19,6 @@ malária.
 **Dataset**
 
 O dataset contém 27.558 imagens de células, de forma balanceada, com igual quantidade de células
-positivas e negativas, isto é, infectadas e não-infectadas. Pode ser baixado em:
+positivas e negativas, isto é, infectadas e não-infectadas. Disponibilizado pelo *National Library
+of Medicine* dos Estados Unidos, pode ser baixado em:
 https://data.lhncbc.nlm.nih.gov/public/Malaria/cell_images.zip
