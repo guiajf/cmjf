@@ -31,7 +31,7 @@ constituídos inicialmente por 1000 amostras de cada uma das categorias (infecta
 infectadas), com a resolução 64x64x3, dos quais foram separados 20% para teste.
 Todas as camadas convolucionais possuem 32 neurônios,
 utilizam filtros 3x3, função de ativação ReLU, pooling no formato 2x2 e dropout de 0,2. Foi
-utilizado o argumento “same” como parâmetro da técnica de preenchimento ou *padding*, para
+utilizado o argumento *“same”* como parâmetro da técnica de preenchimento ou *padding*, para
 preservar a dimensão espacial. Em seguida, temos duas camadas densamente conectadas, com 512 e
 256 neurônios respectivamente, com função de ativação **ReLU**, seguidos por *dropout* com taxa de
 0,2. O modelo foi configurado com o otimizador **ADAM**, método de otimização baseado no
