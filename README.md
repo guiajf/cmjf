@@ -55,4 +55,20 @@ A acurácia do modelo com os dados de teste ficou em 0,95, ligeiramente abaixo d
 ![image](https://github.com/guiajf/malaria/assets/152413615/3f4e5750-1921-4f0f-bd70-36480136be7a)
 
 
+**Dataset completo**
+
+Reproduzimos o modelo base, com algumas modificações, utilizando o dataset completo, com
+27.558 imagens. Para isto, baixamos o dataset diretamente do repositório disponível em:
+https://lhncbc.nlm.nih.gov/LHC-research/LHC-projects/image-processing/malaria-datasheet.html,
+através do seguinte comando:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/4f3c9156-cccb-4ffa-9541-3258a529c220)
+
+Extraímos o conteúdo do arquivo compactado no Google Drive, com o comando:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/e4d0bb6c-4daa-41b5-ab0a-92618d158d16)
+
+
+
+
 
