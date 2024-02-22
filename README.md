@@ -46,3 +46,13 @@ Reproduzimos o modelo base, com 2000 imagens, dessa vez em 100 épocas:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/604ef65f-1fff-4f24-a584-f9aa62fe30e5)
 
+Observamos que a partir de 40 épocas, a performance estabiliza, não apresenta melhoras.
+
+![image](https://github.com/guiajf/malaria/assets/152413615/46930631-c7ec-4c46-b159-1d047fa679db)
+
+A acurácia do modelo com os dados de teste ficou em 0,95, ligeiramente abaixo do índice base:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/3f4e5750-1921-4f0f-bd70-36480136be7a)
+
+
+
