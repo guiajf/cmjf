@@ -39,3 +39,10 @@ gradiente descendente estocástico, antes do treinamento em 40 épocas. Na etapa
 modelo, com os dados de teste, foi alcançada a acurácia de **0,96**. Podemos afirmar que o modelo
 performou muito bem na fase de teste, pois a fração das imagens que foram classificadas
 corretamente pode ser considerada muito alta, para o tipo de problema abordado.
+
+**Reprodução do modelo base**
+
+Reproduzimos o modelo base, com 2000 imagens, dessa vez em 100 épocas:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/604ef65f-1fff-4f24-a584-f9aa62fe30e5)
+
