@@ -15,3 +15,9 @@ dependente da habilidade técnica do profissional.
 Redes neurais convolucionais densamente conectadas podem ser utilizadas para extração de
 características e classificação de imagens, para detecção do parasita responsável pela transmissão da
 malária.
+
+**Dataset**
+
+O dataset contém 27.558 imagens de células, de forma balanceada, com igual quantidade de células
+positivas e negativas, isto é, infectadas e não-infectadas. Pode ser baixado em:
+https://data.lhncbc.nlm.nih.gov/public/Malaria/cell_images.zip
