@@ -62,7 +62,8 @@ Reproduzimos o modelo base, com algumas modificações, utilizando o dataset com
 https://lhncbc.nlm.nih.gov/LHC-research/LHC-projects/image-processing/malaria-datasheet.html,
 através do seguinte comando:
 
-![image](https://github.com/guiajf/malaria/assets/152413615/4f3c9156-cccb-4ffa-9541-3258a529c220)
+![image](https://github.com/guiajf/malaria/assets/152413615/89560831-b615-451a-bb7a-de05a57be249)
+
 
 Extraímos o conteúdo do arquivo compactado no Google Drive, com o comando:
 
