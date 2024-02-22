@@ -69,6 +69,27 @@ Extraímos o conteúdo do arquivo compactado no Google Drive, com o comando:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/c0aca8ac-6d69-4969-b1c5-a2d61dc023e9)
 
+Foram introduzidas as seguintes modificações: aumentamos o número de neurênios da terceira
+camada convolucional, para 64, enquanto as duas primeiras continuaram com 32. Foram
+adicionadas mais duas camadas convolucionais: a quarta com 64 neurônios, e a quinta com 128.
+Permaneceram inalteradas as características de pooling e dropout das novas camadas
+convolucionais. Os parâmetros treináveis foram reduzidos para 533.922, enquanto o modelo inicial
+continha mais de 1,2 milhões.
+Dessa vez, devido ao grande volume de dados disponíveis, separamos o conjunto de dados em
+conjunto de treinamento, validação e teste:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/91b716a1-6533-418d-b162-3e105da0a2a0)
+
+Efetuamos o ajuste desse modelo também em 100 épocas (constatamos posteriormente que foi
+exagerado):
+
+![image](https://github.com/guiajf/malaria/assets/152413615/b89cbf25-8e7e-4d50-8ffc-f91dd69b94b4)
+
+A acurácia do modelo avaliado com os dados de validação alcançou 0,9459:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/dc7afbcb-254e-434f-93f2-298f85a51497)
+
+
 
 
 
