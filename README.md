@@ -67,7 +67,8 @@ através do seguinte comando:
 
 Extraímos o conteúdo do arquivo compactado no Google Drive, com o comando:
 
-![image](https://github.com/guiajf/malaria/assets/152413615/e4d0bb6c-4daa-41b5-ab0a-92618d158d16)
+![image](https://github.com/guiajf/malaria/assets/152413615/c0aca8ac-6d69-4969-b1c5-a2d61dc023e9)
+
 
 
 
