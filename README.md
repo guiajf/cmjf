@@ -142,6 +142,8 @@ Para que o modelo seja treinado para o contexto dos nossos dados, excluímos as 
 
 É importante que façamos com que os pesos das camadas extratoras da **VGG16** não se alterem durante o treinamento. Apenas as camadas totalmente conectadas que adicionaremos ao modelo é que serão alteradas durante o treinamento.
 
+Essa abordagem é especialmente útil quando o conjunto de dados de destino é pequeno, em comparação com o conjunto de dados original no qual o *base_model* foi treinado.
+
 Carregamos as bibliotecas necessárias:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/a4d85130-9719-4531-b965-a45bb98f9b7d)
@@ -182,9 +184,25 @@ Realizamos o preprocessamento dos dados e definimos o modelo:
 ![image](https://github.com/guiajf/malaria/assets/152413615/091bfa5b-f150-41cd-9998-0c678f6a9c0a)
 
 
-Foi utilizado o método “Upsampling2D”, para gerar mais pontos de dados de cada imagem do
+Foi utilizado o método *Upsampling2D*, para gerar mais pontos de dados de cada imagem do
 banco de dados completo, ao mesmo tempo em que definimos o decaimento da taxa de
 aprendizagem de acordo com as épocas.
+
+Alguns motivos para adicionar a camada *upsampling*:
+
+**1. Aumento da Resolução Espacial:**
+
+O upsampling aumenta a resolução espacial dos dados de entrada. Isso pode ser benéfico se a resolução original das imagens do conjunto de dados for relativamente baixa. Aumentar a resolução antes de passar pelos recursos aprendidos pelo *base_model* pode ajudar a preservar mais detalhes.
+
+**2. Adaptação à Arquitetura do VGG16:**
+
+A arquitetura **VGG16**, pré-treinada no **ImageNet**, espera entradas com uma resolução específica (224x224 pixels). O *upsampling* pode ser usado para ajustar as dimensões das imagens do conjunto de dados para corresponder a essa resolução esperada.
+
+**3. Exploração de Recursos Aprendidos:**
+
+O *upsampling* pode permitir que o modelo explore informações mais detalhadas nas imagens de entrada antes de passar por camadas convolucionais. Isso pode ser útil se as características de alta resolução forem relevantes para a tarefa.
+
+
 A segunda chamada callback salva o melhor modelo, de acordo com o menor valor da função custo.
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/30c4b04a-a25a-4ce6-88a1-27a923cbffa6)
