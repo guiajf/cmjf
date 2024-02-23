@@ -97,7 +97,8 @@ Contudo, ao calcularmos a métrica de desempenho definida inicialmente no modelo
 *acurácia*, após a predição com os dados de teste, observamos que houve uma queda considerável do
 indicador, calculado através da função **classification_report:**
 
-![image](https://github.com/guiajf/malaria/assets/152413615/81fb2f7b-7a7a-4939-9ee6-03e34e20a544)
+![image](https://github.com/guiajf/malaria/assets/152413615/a5551579-2c80-43f8-a747-da39c223a60b)
+
 
 A fração de imagens classificadas corretamente ficou em apenas **0,62**, índice muito baixo para o
 tipo de problema estudado.
