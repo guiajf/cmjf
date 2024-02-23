@@ -131,8 +131,13 @@ Ao avaliarmos o modelo com os dados de teste, alcançamos uma *acurácia* de **0
 
 **Transfer Learning: VGG16**
 
-Empregamos a técnica de transferência de aprendizagem (*transfer learning*),
-também com o dataset completo. Para isso, adotamos o modelo **VGG16**.
+Aqui construíremos um novo modelo, também com o *dataset* completo, utilizando a técnica de transferência de aprendizagem (*transfer learning*). Usaremos como base o modelo VGG16 pré-treinado com o conjunto de dados *ImageNet*.
+
+A ideia do *Transfer Learning* é usar o modelo pré-treinado para extrair algumas características dos nossos dados. Essa capacidade de extrair características foi previamente aprendida no *ImageNet*.
+
+Para que o modelo seja treinado para o contexto dos nossos dados, excluímos as últimas camadas totalmente conectadas do **VGG16**, adicionando novas camadas para serem treinadas. Assim, podemos pensar que estamos apenas usando a rede pré-treinada para extrair características e treinando uma rede nova com essas características.
+
+É importante que façamos com que os pesos das camadas extratoras da **VGG16** não se alterem durante o treinamento. Apenas as camadas totalmente conectadas que adicionaremos ao modelo é que serão alteradas durante o treinamento.
 
 Carregamos as bibliotecas necessárias:
 
@@ -146,7 +151,7 @@ Fazemos com que as camadas do modelo pré-treinado não sejam alteradas durante 
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/29b6a1b0-2dea-4135-a27f-dcd7acb10bf0)
 
-Criamos o modelo sequential onde temos o VGG16 seguido das novas camadas conectadas:
+Criamos o modelo sequencial, com o **VGG16** acompanhado de novas camadas conectadas:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/05a91e41-d6b3-4cb4-b457-8f42ab631b07)
 
@@ -162,6 +167,27 @@ Realizamos o ajuste do modelo em 50 épocas:
 Fizemos as predições com os dados de teste, foi obtida acurácia de **0.89**:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/ed68a064-4d63-4ac3-9ee5-3e3d0a2f0ded)
+
+**Modelo K**
+
+O **Modelo Kutilizando**, também baseado no método de *transfer learning*, foi adaptado de
+Paulo Morillo (2020) - *“The transfer learning experience with VGG16 and Cifar 10 dataset”*,
+publicado em Analytics Vidhya, em 03/07/2020.
+
+Realizamos o preprocessamento dos dados e definimos o modelo:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/3ec90943-1745-490f-b404-8da052af2e94)
+
+Foi utilizado o método “Upsampling2D”, para gerar mais pontos de dados de cada imagem do
+banco de dados completo, ao mesmo tempo em que definimos o decaimento da taxa de
+aprendizagem de acordo com as épocas.
+A segunda chamada callback salva o melhor modelo, de acordo com o menor valor da função custo.
+
+![image](https://github.com/guiajf/malaria/assets/152413615/d752c50c-e581-424b-a048-dabf6b5490e9)
+
+
+
+
 
 
 
