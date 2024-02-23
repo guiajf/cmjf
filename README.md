@@ -192,15 +192,15 @@ Alguns motivos para adicionar a camada *upsampling*:
 
 **1. Aumento da Resolução Espacial:**
 
-. O upsampling aumenta a resolução espacial dos dados de entrada. Isso pode ser benéfico se a resolução original das imagens do conjunto de dados for relativamente baixa. Aumentar a resolução antes de passar pelos recursos aprendidos pelo *base_model* pode ajudar a preservar mais detalhes.
+    O upsampling aumenta a resolução espacial dos dados de entrada. Isso pode ser benéfico se a resolução original das imagens do conjunto de dados for relativamente baixa. Aumentar a resolução antes de passar pelos recursos aprendidos pelo *base_model* pode ajudar a preservar mais detalhes.
 
 **2. Adaptação à Arquitetura do VGG16:**
 
-. A arquitetura **VGG16**, pré-treinada no **ImageNet**, espera entradas com uma resolução específica (224x224 pixels). O *upsampling* pode ser usado para ajustar as dimensões das imagens do conjunto de dados para corresponder a essa resolução esperada.
+    A arquitetura **VGG16**, pré-treinada no **ImageNet**, espera entradas com uma resolução específica (224x224 pixels). O *upsampling* pode ser usado para ajustar as dimensões das imagens do conjunto de dados para corresponder a essa resolução esperada.
 
 **3. Exploração de Recursos Aprendidos:**
 
-. O *upsampling* pode permitir que o modelo explore informações mais detalhadas nas imagens de entrada antes de passar por camadas convolucionais. Isso pode ser útil se as características de alta resolução forem relevantes para a tarefa.
+    O *upsampling* pode permitir que o modelo explore informações mais detalhadas nas imagens de entrada antes de passar por camadas convolucionais. Isso pode ser útil se as características de alta resolução forem relevantes para a tarefa.
 
 
 A segunda chamada callback salva o melhor modelo, de acordo com o menor valor da função custo.
