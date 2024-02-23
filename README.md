@@ -109,6 +109,17 @@ em *Machine Learning for Everybody – Full Course*, disponível em https://www.
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/fce6fe72-7149-4469-b7ca-ff31ef4c177a)
 
+Testamos os melhores hiperparâmetros, a saber: o número de neurônios das camadas
+convolucionais e densamente conectadas, a taxa de *dropout*, a taxa de aprendizagem e o *batch_size*.
+E depois salvamos o modelo que apresente o menor valor de função custo:
+
+
+Salvamos e carregamos o modelo:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/c693495e-b925-48f3-a9a6-0bec795087ac)
+
+
+
 
 
 
