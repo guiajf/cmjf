@@ -186,6 +186,9 @@ A segunda chamada callback salva o melhor modelo, de acordo com o menor valor da
 ![image](https://github.com/guiajf/malaria/assets/152413615/d752c50c-e581-424b-a048-dabf6b5490e9)
 
 
+D
+
+
 
 
 
