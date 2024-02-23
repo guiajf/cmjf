@@ -222,6 +222,8 @@ O dataset contém imagens redimensionadas de 64x64 pixels. Ao redimensioná-las 
 Aumentar a resolução também aumenta o custo computacional. Modelos maiores demandam mais recursos durante o treinamento e a inferência.
 
 
+
+
 Tomada a decisão balanceada:
 
 - Definimos o decaimento da taxa de aprendizagem de acordo com as épocas.
