@@ -108,6 +108,7 @@ Definimos um novo modelo como uma função, adaptado de Kylie Ying,
 em *Python TensorFlow for Machine Learning – Neural Network Text Classification Tutorial*:
 
 Definimos um novo modelo como uma função:
+
 ![image](https://github.com/guiajf/malaria/assets/152413615/fce6fe72-7149-4469-b7ca-ff31ef4c177a)
 
 
