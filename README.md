@@ -19,7 +19,7 @@ O dataset consiste em 27.558 imagens de células, equilibrado com igual quantida
 
 O código em Python foi executado no Google Colab para reproduzir modelos de rede neural convolucional (CNN), utilizando a API Keras do TensorFlow, capazes de classificar imagens do conjunto de dados mencionado.
 
-O modelo inicial contém 1.200.322 parâmetros treináveis, com três camadas convolucionais e duas camadas densamente conectadas. Os dados de entrada inicialmente consistem em 1000 amostras de cada categoria (infectadas e não infectadas), com resolução de 64x64x3, dos quais 20% foram separados para teste. Todas as camadas convolucionais possuem 32 neurônios, filtros 3x3, função de ativação **ReLU**, *pooling* de 2x2 e dropout de 0,2. O parâmetro *"same"* foi utilizado para preservar a dimensão espacial. Em seguida, há duas camadas densamente conectadas, com 512 e 256 neurônios, respectivamente, com função de ativação **ReLU**, seguidas por *dropout* com taxa de 0,2. O modelo foi configurado com o otimizador **ADAM** e treinado por 40 épocas. Na avaliação do modelo com os dados de teste, a acurácia alcançou **0,96**, indicando um desempenho satisfatório.
+O modelo inicial contém 1.200.322 parâmetros treináveis, com três camadas convolucionais e duas camadas densamente conectadas. Os dados de entrada inicialmente consistem em 1000 amostras de cada categoria (infectadas e não infectadas), com resolução de 64x64x3, dos quais 20% foram separados para teste. Todas as camadas convolucionais possuem 32 neurônios, filtros 3x3, função de ativação **ReLU**, *pooling* de 2x2 e *dropout* de 0,2. O parâmetro *"same"* foi utilizado para preservar a dimensão espacial. Em seguida, há duas camadas densamente conectadas, com 512 e 256 neurônios, respectivamente, com função de ativação **ReLU**, seguidas por *dropout* com taxa de 0,2. O modelo foi configurado com o otimizador **ADAM** e treinado por 40 épocas. Na avaliação do modelo com os dados de teste, a acurácia alcançou **0.96**, indicando um desempenho satisfatório.
 
 ## Reprodução do modelo base
 
@@ -31,7 +31,7 @@ Observou-se que a partir da 40ª época, a performance estabilizou, sem melhoria
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/46930631-c7ec-4c46-b159-1d047fa679db)
 
-A acurácia do modelo com os dados de teste foi de **0,95**, ligeiramente abaixo do índice base.
+A acurácia do modelo com os dados de teste foi de **0.95**, ligeiramente abaixo do índice base.
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/3f4e5750-1921-4f0f-bd70-36480136be7a)
 
@@ -60,7 +60,7 @@ O modelo foi ajustado em 100 épocas:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/b89cbf25-8e7e-4d50-8ffc-f91dd69b94b4)
 
-O modelo alcançou uma acurácia de **0,9459** com os dados de validação:
+O modelo alcançou uma acurácia de **0.9459** com os dados de validação:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/dc7afbcb-254e-434f-93f2-298f85a51497)
 
@@ -75,7 +75,7 @@ indicador, calculado através da função **classification_report:**
 
 
 
-A fração de imagens classificadas corretamente ficou em apenas **0,62**, índice muito baixo para o
+A fração de imagens classificadas corretamente ficou em apenas **0.62**, índice muito baixo para o
 tipo de problema estudado.
 
 ## Modelo *least_val_loss*
@@ -94,7 +94,7 @@ Salvamos e carregamos o modelo:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/c693495e-b925-48f3-a9a6-0bec795087ac)
 
-Ao avaliar o modelo com os dados de teste, obteve-se uma acurácia de **0,94**.
+Ao avaliar o modelo com os dados de teste, obteve-se uma acurácia de **0.94**.
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/6164b8a2-708a-44f7-ba9e-6cb05df2226b)
 
