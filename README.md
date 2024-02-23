@@ -221,11 +221,12 @@ O dataset contém imagens redimensionadas de 64x64 pixels. Ao redimensioná-las 
 
 Aumentar a resolução também aumenta o custo computacional. Modelos maiores demandam mais recursos durante o treinamento e a inferência.
 
-Definimos o decaimento da taxa de aprendizagem de acordo com as épocas.
 
-Experimentamos com diferentes resoluções para encontrar um equilíbrio adequado.
+Tomada a decisão balanceada:
 
-A segunda chamada callback salva o melhor modelo, de acordo com o menor valor da função custo.
+- Definimos o decaimento da taxa de aprendizagem de acordo com as épocas.
+- Experimentamos com diferentes resoluções para encontrar um equilíbrio adequado.
+- A segunda chamada callback salva o melhor modelo, de acordo com o menor valor da função custo.
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/30c4b04a-a25a-4ce6-88a1-27a923cbffa6)
 
