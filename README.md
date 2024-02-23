@@ -173,19 +173,15 @@ Adicionar a camada *upsampling* pode ter implicações positivas e negativas.
 
 **Negativas:**
 
-**1. Aumento da Resolução:**
-
-- O aumento da resolução das imagens pode fornecer mais detalhes e informações ao modelo. Isso pode ser benéfico para a tarefa específica, especialmente se detalhes finos são importantes.
-  
-**2. Overfitting Possível:**
+**1. Overfitting:**
 
 Aumentar significativamente a resolução das imagens pode resultar em um modelo mais complexo e propenso ao overfitting, especialmente se o conjunto de dados original não possui imagens de alta resolução. O overfitting ocorre quando o modelo se ajusta demais aos dados de treinamento e não generaliza bem para novos dados.
 
-**3. Dimensões Originais do dataset:**
+**2. Dimensões Originais do dataset:**
 
 O dataset contém imagens redimensionadas de 64x64 pixels. Ao redefini-las para 128x128 pixels, alteramos drasticamente as características do conjunto de dados original. Isso pode afetar a capacidade do modelo de generalizar para imagens com as dimensões originais.
 
-**4. Uso de Recursos Computacionais:**
+**3. Uso de Recursos Computacionais:**
 
 Aumentar a resolução também aumenta o custo computacional. Modelos maiores demandam mais recursos durante o treinamento e a inferência.
 
