@@ -192,7 +192,7 @@ As decisões foram tomadas de forma balanceada, incluindo o decaimento da taxa d
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/30c4b04a-a25a-4ce6-88a1-27a923cbffa6)
 
-Ao avaliarmos o **Modelo K** com om dados de teste, obtivemos *acurácia* de 0.9846:
+Ao avaliarmos o **Modelo K** com os dados de teste, obtivemos *acurácia* de **0.9846**:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/41e5dc51-d781-461a-886a-9e4e5b3f4ace)
 
