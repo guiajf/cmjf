@@ -176,14 +176,16 @@ publicado em Analytics Vidhya, em 03/07/2020.
 
 Realizamos o preprocessamento dos dados e definimos o modelo:
 
-![image](https://github.com/guiajf/malaria/assets/152413615/3ec90943-1745-490f-b404-8da052af2e94)
+![image](https://github.com/guiajf/malaria/assets/152413615/091bfa5b-f150-41cd-9998-0c678f6a9c0a)
+
 
 Foi utilizado o método “Upsampling2D”, para gerar mais pontos de dados de cada imagem do
 banco de dados completo, ao mesmo tempo em que definimos o decaimento da taxa de
 aprendizagem de acordo com as épocas.
 A segunda chamada callback salva o melhor modelo, de acordo com o menor valor da função custo.
 
-![image](https://github.com/guiajf/malaria/assets/152413615/d752c50c-e581-424b-a048-dabf6b5490e9)
+![image](https://github.com/guiajf/malaria/assets/152413615/30c4b04a-a25a-4ce6-88a1-27a923cbffa6)
+
 
 
 D
