@@ -208,7 +208,7 @@ Então obtivemos uma *acurácia* de **0.9870** com os dados de teste, desempenho
 ![image](https://github.com/guiajf/malaria/assets/152413615/ccba8a5f-e6dc-4b36-a17f-06e77e53cedb)
 
 
-Por fim, advertimos que, embora não haja divergências significativas no desempenho, o uso do *base_model* da **VGG16** sem o argumento *input_shape* pode levar a uma perda de informações importantes, especialmente ao lidar com conjuntos de dados com dimensões de imagem diferentes.
+É importante destacar que usar o base_model da **VGG16** sem especificar o argumento input_shape pode resultar em perda de informações cruciais, principalmente ao lidar com conjuntos de dados que possuem dimensões de imagem variadas.
 
 
 
