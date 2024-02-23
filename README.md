@@ -246,7 +246,8 @@ Para otimizar o desempenho e a acurácia, treinamos novamente o **Modelo K**, de
 ![image](https://github.com/guiajf/malaria/assets/152413615/4f63d711-851d-47d2-b55b-ca342f5167ab)
 
 Então obtivemos uma *acurácia* de *0.9870* com os dados de teste.
-Notamos que a alteração do argumento *input_shape* não provocou divergências significativas no desempenho dos modelos.
+
+Ressalvamos que a alteração do argumento *input_shape* não provocou divergências significativas no desempenho dos modelos.
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/ccba8a5f-e6dc-4b36-a17f-06e77e53cedb)
 
