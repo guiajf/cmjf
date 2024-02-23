@@ -121,6 +121,8 @@ Salvamos e carregamos o modelo:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/c693495e-b925-48f3-a9a6-0bec795087ac)
 
+Ao testarmos o modelo com os dados de teste, alcançamos uma *acurácia* de 0.94.
+
 
 
 
