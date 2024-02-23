@@ -99,6 +99,16 @@ indicador, calculado através da função **classification_report:**
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/81fb2f7b-7a7a-4939-9ee6-03e34e20a544)
 
+A fração de imagens classificadas corretamente ficou em apenas **0,62**, índice muito baixo para o
+tipo de problema estudado.
+
+**Modelo *least val loss***
+
+Definimos um novo modelo como uma função, adaptado de Kylie Ying, 
+em *Python TensorFlow for Machine Learning – Neural Network Text Classification Tutorial*:
+
+Definimos um novo modelo como uma função:
+![image](https://github.com/guiajf/malaria/assets/152413615/fce6fe72-7149-4469-b7ca-ff31ef4c177a)
 
 
 
