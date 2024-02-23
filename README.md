@@ -2,58 +2,36 @@
 
 ## Introdução
 
-Implementamos um modelo de rede neural convolucional para a detecção do
-Plasmodium, parasita responsável pela transmissão da malária, em um conjunto de imagens de
-células sanguíneas, mais especificamente das hemácias.
 
-A malária é uma infecção dos glóbulos vermelhos do sangue causada por uma de cinco espécies
-de protozoários Plasmodium.
+Um modelo de rede neural convolucional foi implementado para detectar o Plasmodium, o parasita responsável pela transmissão da malária, em um conjunto de imagens de células sanguíneas, especificamente das hemácias.
 
-O método diagnóstico largamente utilizado é o exame microscópico de amostras de sangue,
-dependente da habilidade técnica do profissional.
+A malária é uma infecção dos glóbulos vermelhos do sangue causada por uma das cinco espécies de protozoários *Plasmodium*.
 
-Redes neurais convolucionais densamente conectadas podem ser utilizadas para extração de
-características e classificação de imagens, para detecção do parasita responsável pela transmissão da
-malária.
+O método diagnóstico mais comum é o exame microscópico de amostras de sangue, que depende da habilidade técnica do profissional.
+
+As redes neurais convolucionais densamente conectadas podem ser utilizadas para extrair características e classificar imagens, visando detectar o parasita responsável pela transmissão da malária.
 
 ## Dataset
 
-O dataset contém 27.558 imagens de células, de forma balanceada, com igual quantidade de células
-positivas e negativas, isto é, infectadas e não-infectadas. Disponibilizado pelo *National Library
-of Medicine* dos Estados Unidos, pode ser baixado em:
-https://data.lhncbc.nlm.nih.gov/public/Malaria/cell_images.zip
+O dataset consiste em 27.558 imagens de células, equilibrado com igual quantidade de células positivas e negativas, ou seja, infectadas e não infectadas. Ele está disponível no *National Library of Medicine* dos Estados Unidos e pode ser baixado em: https://data.lhncbc.nlm.nih.gov/public/Malaria/cell_images.zip
 
 ## Indicadores de base
 
-Executamos o código em Python, no Google Colab, para reproduzir modelos de rede neural convolucional (CNN),
-utilizando a API Keras do TensorFlow, capazes de classificar imagens do conjunto de dados mencionado.
+O código em Python foi executado no Google Colab para reproduzir modelos de rede neural convolucional (CNN), utilizando a API Keras do TensorFlow, capazes de classificar imagens do conjunto de dados mencionado.
 
-O modelo inicial contém 1.200.322 parâmetros treináveis, possui
-três camadas convolucionais e duas camadas densamente conectadas. Os dados de entrada são
-constituídos inicialmente por 1000 amostras de cada uma das categorias (infectadas e não-
-infectadas), com a resolução 64x64x3, dos quais foram separados 20% para teste.
-Todas as camadas convolucionais possuem 32 neurônios,
-utilizam filtros 3x3, função de ativação ReLU, pooling no formato 2x2 e dropout de 0,2. Foi
-utilizado o argumento *“same”* como parâmetro da técnica de preenchimento ou *padding*, para
-preservar a dimensão espacial. Em seguida, temos duas camadas densamente conectadas, com 512 e
-256 neurônios respectivamente, com função de ativação **ReLU**, seguidos por *dropout* com taxa de
-0,2. O modelo foi configurado com o otimizador **ADAM**, método de otimização baseado no
-gradiente descendente estocástico, antes do treinamento em 40 épocas. Na etapa de avaliação do
-modelo, com os dados de teste, foi alcançada a acurácia de **0,96**. Podemos afirmar que o modelo
-performou muito bem na fase de teste, pois a fração das imagens que foram classificadas
-corretamente pode ser considerada muito alta, para o tipo de problema abordado.
+O modelo inicial contém 1.200.322 parâmetros treináveis, com três camadas convolucionais e duas camadas densamente conectadas. Os dados de entrada inicialmente consistem em 1000 amostras de cada categoria (infectadas e não infectadas), com resolução de 64x64x3, dos quais 20% foram separados para teste. Todas as camadas convolucionais possuem 32 neurônios, filtros 3x3, função de ativação ReLU, pooling de 2x2 e dropout de 0,2. O parâmetro *"same"* foi utilizado para preservar a dimensão espacial. Em seguida, há duas camadas densamente conectadas, com 512 e 256 neurônios, respectivamente, com função de ativação **ReLU**, seguidas por *dropout* com taxa de 0,2. O modelo foi configurado com o otimizador **ADAM** e treinado por 40 épocas. Na avaliação do modelo com os dados de teste, a acurácia alcançou **0,96**, indicando um desempenho positivo.
 
 ## Reprodução do modelo base
 
-Reproduzimos o modelo base, com 2000 imagens, dessa vez em 100 épocas:
+O modelo base foi reproduzido com 2000 imagens, desta vez em 100 épocas. 
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/604ef65f-1fff-4f24-a584-f9aa62fe30e5)
 
-Observamos que a partir de 40 épocas, a performance estabiliza, não apresenta melhoras.
+Observou-se que a partir da 40ª época, a performance estabilizou, sem melhorias significativas.
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/46930631-c7ec-4c46-b159-1d047fa679db)
 
-A acurácia do modelo com os dados de teste ficou em 0,95, ligeiramente abaixo do índice base:
+A acurácia do modelo com os dados de teste foi de **0,95**, ligeiramente abaixo do índice base.
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/3f4e5750-1921-4f0f-bd70-36480136be7a)
 
@@ -72,23 +50,17 @@ Extraímos o conteúdo do arquivo compactado no Google Drive, com o comando:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/c0aca8ac-6d69-4969-b1c5-a2d61dc023e9)
 
-Foram introduzidas as seguintes modificações: aumentamos o número de neurênios da terceira
-camada convolucional, para 64, enquanto as duas primeiras continuaram com 32. Foram
-adicionadas mais duas camadas convolucionais: a quarta com 64 neurônios, e a quinta com 128.
-Permaneceram inalteradas as características de pooling e dropout das novas camadas
-convolucionais. Os parâmetros treináveis foram reduzidos para 533.922, enquanto o modelo inicial
-continha mais de 1,2 milhões.
-Dessa vez, devido ao grande volume de dados disponíveis, separamos o conjunto de dados em
-conjunto de treinamento, validação e teste:
+O modelo base foi reproduzido com algumas modificações, utilizando o dataset completo de 27.558 imagens. O número de neurônios na terceira camada convolucional foi aumentado para 64, enquanto as duas primeiras continuaram com 32. Foram adicionadas mais duas camadas convolucionais: a quarta com 64 neurônios e a quinta com 128. As características de pooling e dropout das novas camadas convolucionais permaneceram inalteradas. Os parâmetros treináveis foram reduzidos para 533.922.
+
+O conjunto de dados foi separado em conjuntos de treinamento, validação e teste:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/91b716a1-6533-418d-b162-3e105da0a2a0)
 
-Efetuamos o ajuste desse modelo também em 100 épocas (constatamos posteriormente que foi
-exagerado):
+O modelo foi ajustado em 100 épocas:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/b89cbf25-8e7e-4d50-8ffc-f91dd69b94b4)
 
-A acurácia do modelo avaliado com os dados de validação alcançou 0,9459:
+O modelo alcançou uma acurácia de **0,9459** com os dados de validação:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/dc7afbcb-254e-434f-93f2-298f85a51497)
 
@@ -96,8 +68,7 @@ Realizamos a predição com os dados de teste:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/1c9e608e-5ab9-4319-88fa-1f5f096e69c5)
 
-Contudo, ao calcularmos a métrica de desempenho definida inicialmente no modelo, qual seja, a
-*acurácia*, após a predição com os dados de teste, observamos que houve uma queda considerável do
+Então, observamos uma queda considerável do
 indicador, calculado através da função **classification_report:**
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/6ad0ab21-5aab-47f3-9786-c72650d9b48c)
@@ -109,24 +80,21 @@ tipo de problema estudado.
 
 ## Modelo *least_val_loss*
 
-Definimos um novo modelo como uma função, adaptado de Kylie Ying, 
-em *Machine Learning for Everybody – Full Course*, disponível em https://www.youtube.com/watch?v=i_LwzRVP7bg:
+Um novo modelo foi definido como uma função adaptada de Kylie Ying (*Machine Learning for Everybody – Full Course*, disponível em https://www.youtube.com/watch?v=i_LwzRVP7bg). 
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/fce6fe72-7149-4469-b7ca-ff31ef4c177a)
 
-Testamos os melhores hiperparâmetros, a saber: o número de neurônios das camadas
-convolucionais e densamente conectadas, a taxa de *dropout*, a taxa de aprendizagem e o *batch_size*.
-E depois armazenamos o modelo que apresente o menor valor de função custo:
+
+Foram testados diferentes hiperparâmetros, e o modelo com o menor valor de função custo foi armazenado.:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/303b895d-e5ab-4918-b46e-8b55a063f3a7)
-
 
 
 Salvamos e carregamos o modelo:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/c693495e-b925-48f3-a9a6-0bec795087ac)
 
-Ao avaliarmos o modelo com os dados de teste, alcançamos uma *acurácia* de **0.94**.
+Ao avaliar o modelo com os dados de teste, obteve-se uma acurácia de **0,94**.
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/6164b8a2-708a-44f7-ba9e-6cb05df2226b)
 
@@ -215,7 +183,7 @@ Aumentar significativamente a resolução das imagens pode resultar em um modelo
 
 **3. Dimensões Originais do dataset:**
 
-O dataset contém imagens redimensionadas de 64x64 pixels. Ao redimensioná-las para 128x128 pixels, alteramos drasticamente as características do conjunto de dados original. Isso pode afetar a capacidade do modelo de generalizar para imagens com as dimensões originais.
+O dataset contém imagens redimensionadas de 64x64 pixels. Ao redefini-las para 128x128 pixels, alteramos drasticamente as características do conjunto de dados original. Isso pode afetar a capacidade do modelo de generalizar para imagens com as dimensões originais.
 
 **4. Uso de Recursos Computacionais:**
 
@@ -224,11 +192,7 @@ Aumentar a resolução também aumenta o custo computacional. Modelos maiores de
 
 ## Considerações finais
 
-Tomada a decisão balanceada:
-
-- Definimos o decaimento da taxa de aprendizagem de acordo com as épocas.
-- Experimentamos com diferentes resoluções para encontrar um equilíbrio adequado.
-- A segunda chamada callback salva o melhor modelo, de acordo com o menor valor da função custo.
+As decisões foram tomadas de forma balanceada, incluindo o decaimento da taxa de aprendizagem, experimentações com diferentes resoluções e o armazenamento do melhor modelo. 
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/30c4b04a-a25a-4ce6-88a1-27a923cbffa6)
 
@@ -239,17 +203,18 @@ Ao avaliarmos o **Modelo K** com om dados de teste, obtivemos *acurácia* de 0.9
 
 O base_model da **VGG16**, quando utilizado sem o argumento *input_shape*, assume um tamanho de entrada padrão que é (224, 224, 3). Isso se deve à arquitetura original do VGG16 treinado no conjunto de dados *ImageNet*.
 
-Quando o conjunto de dados tem dimensões de imagem diferentes, o *base_model* tenta lidar com essas diferenças automaticamente. Isso pode levar a uma perda de informações importantes, pois o modelo pode tentar redimensionar ou cortar as imagens para ajustá-las ao tamanho esperado.
-
 Para otimizar o desempenho e a acurácia, treinamos novamente o **Modelo K**, definido o parâmetro “input_shape”=(128,128,3)”:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/4f63d711-851d-47d2-b55b-ca342f5167ab)
 
 Então obtivemos uma *acurácia* de *0.9870* com os dados de teste.
 
-Ressalvamos que a alteração do argumento *input_shape* não provocou divergências significativas no desempenho dos modelos.
-
 ![image](https://github.com/guiajf/malaria/assets/152413615/ccba8a5f-e6dc-4b36-a17f-06e77e53cedb)
+
+
+Embora não tenha havido divergências significativas no desempenho dos modelos, ressaltamos que o uso do *base_model* da **VGG16** sem o argumento *input_shape* pode levar a uma perda de informações importantes, especialmente ao lidar com conjuntos de dados com dimensões de imagem diferentes.
+
+
 
 
 
