@@ -1,4 +1,4 @@
-# Modelo de rede neural para diagnóstico da malária
+# Modelo de rede neural para diagnóstico de malária
 
 ## Introdução
 
