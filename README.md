@@ -125,6 +125,9 @@ Salvamos e carregamos o modelo:
 
 Ao avaliarmos o modelo com os dados de teste, alcançamos uma *acurácia* de **0.94**.
 
+![image](https://github.com/guiajf/malaria/assets/152413615/6164b8a2-708a-44f7-ba9e-6cb05df2226b)
+
+
 
 **Transfer Learning: VGG16**
 
