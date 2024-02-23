@@ -186,9 +186,22 @@ A segunda chamada callback salva o melhor modelo, de acordo com o menor valor da
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/30c4b04a-a25a-4ce6-88a1-27a923cbffa6)
 
+Ao avaliarmos o **Modelo K** com om dados de teste, obtivemos *acurácia* de 0.9846:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/41e5dc51-d781-461a-886a-9e4e5b3f4ace)
 
 
-D
+O base_model da **VGG16**, quando utilizado sem o argumento *input_shape*, assume um tamanho de entrada padrão que é (224, 224, 3).
+Treinamos novamente o **Modelo K**, dessa vez incluindo o parâmetro “input_shape”=(128,128,3)”:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/4f63d711-851d-47d2-b55b-ca342f5167ab)
+
+Então obtivemos uma *acurácia* de *0.9870* com os dados de teste.
+Notamos que a alteração do argumento *input_shape* não provocou divergências significativas no desempenho dos modelos.
+
+![image](https://github.com/guiajf/malaria/assets/152413615/ccba8a5f-e6dc-4b36-a17f-06e77e53cedb)
+
+
 
 
 
