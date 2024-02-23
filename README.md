@@ -25,6 +25,9 @@ https://data.lhncbc.nlm.nih.gov/public/Malaria/cell_images.zip
 
 **Indicadores de base**
 
+Executamos o código em Python, no Google Colab, para reproduzir modelos de rede neural convolucional (CNN),
+utilizando a API Keras do TensorFlow, capazes de classificar imagens do conjunto de dados mencionado.
+
 O modelo inicial contém 1.200.322 parâmetros treináveis, possui
 três camadas convolucionais e duas camadas densamente conectadas. Os dados de entrada são
 constituídos inicialmente por 1000 amostras de cada uma das categorias (infectadas e não-
