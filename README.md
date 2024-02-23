@@ -203,7 +203,7 @@ Para otimizar o desempenho e a acurácia, treinamos novamente o **Modelo K**, de
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/4f63d711-851d-47d2-b55b-ca342f5167ab)
 
-Então obtivemos uma *acurácia* de **0.9870** com os dados de teste.
+Então obtivemos uma *acurácia* de **0.9870** com os dados de teste, desempenho superior ao índice de referência e aos resultados de todos os modelos testados. Significa que, se o modelo faz 100 predições, acerta 98 (ou quase 99) delas. Portanto, a performance do modelo com os dados de teste pode ser considerada excelente.
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/ccba8a5f-e6dc-4b36-a17f-06e77e53cedb)
 
