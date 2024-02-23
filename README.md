@@ -1,6 +1,6 @@
 # Modelo de rede neural para diagnóstico da malária
 
-**Introdução**
+## Introdução
 
 Implementamos um modelo de rede neural convolucional para a detecção do
 Plasmodium, parasita responsável pela transmissão da malária, em um conjunto de imagens de
@@ -16,14 +16,14 @@ Redes neurais convolucionais densamente conectadas podem ser utilizadas para ext
 características e classificação de imagens, para detecção do parasita responsável pela transmissão da
 malária.
 
-**Dataset**
+## Dataset
 
 O dataset contém 27.558 imagens de células, de forma balanceada, com igual quantidade de células
 positivas e negativas, isto é, infectadas e não-infectadas. Disponibilizado pelo *National Library
 of Medicine* dos Estados Unidos, pode ser baixado em:
 https://data.lhncbc.nlm.nih.gov/public/Malaria/cell_images.zip
 
-**Indicadores de base**
+## Indicadores de base
 
 Executamos o código em Python, no Google Colab, para reproduzir modelos de rede neural convolucional (CNN),
 utilizando a API Keras do TensorFlow, capazes de classificar imagens do conjunto de dados mencionado.
@@ -43,7 +43,7 @@ modelo, com os dados de teste, foi alcançada a acurácia de **0,96**. Podemos a
 performou muito bem na fase de teste, pois a fração das imagens que foram classificadas
 corretamente pode ser considerada muito alta, para o tipo de problema abordado.
 
-**Reprodução do modelo base**
+## Reprodução do modelo base
 
 Reproduzimos o modelo base, com 2000 imagens, dessa vez em 100 épocas:
 
@@ -58,7 +58,7 @@ A acurácia do modelo com os dados de teste ficou em 0,95, ligeiramente abaixo d
 ![image](https://github.com/guiajf/malaria/assets/152413615/3f4e5750-1921-4f0f-bd70-36480136be7a)
 
 
-**Dataset completo**
+## Dataset completo
 
 Reproduzimos o modelo base, com algumas modificações, utilizando o dataset completo, com
 27.558 imagens. Para isto, baixamos o dataset diretamente do repositório disponível em:
@@ -107,7 +107,7 @@ indicador, calculado através da função **classification_report:**
 A fração de imagens classificadas corretamente ficou em apenas **0,62**, índice muito baixo para o
 tipo de problema estudado.
 
-**Modelo *least val loss***
+## Modelo *least_val_loss*
 
 Definimos um novo modelo como uma função, adaptado de Kylie Ying, 
 em *Machine Learning for Everybody – Full Course*, disponível em https://www.youtube.com/watch?v=i_LwzRVP7bg:
@@ -132,7 +132,7 @@ Ao avaliarmos o modelo com os dados de teste, alcançamos uma *acurácia* de **0
 
 
 
-**Transfer Learning: VGG16**
+## Transfer Learning: VGG16
 
 Aqui construíremos um novo modelo, também com o *dataset* completo, utilizando a técnica de transferência de aprendizagem (*transfer learning*). Usaremos como base o modelo VGG16 pré-treinado com o conjunto de dados *ImageNet*.
 
@@ -173,7 +173,7 @@ Fizemos as predições com os dados de teste, foi obtida acurácia de **0.89**:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/ed68a064-4d63-4ac3-9ee5-3e3d0a2f0ded)
 
-**Modelo K**
+## Modelo K
 
 O **Modelo Kutilizando**, também baseado no método de *transfer learning*, foi adaptado de
 Paulo Morillo (2020) - *“The transfer learning experience with VGG16 and Cifar 10 dataset”*,
@@ -222,7 +222,7 @@ O dataset contém imagens redimensionadas de 64x64 pixels. Ao redimensioná-las 
 Aumentar a resolução também aumenta o custo computacional. Modelos maiores demandam mais recursos durante o treinamento e a inferência.
 
 
-
+## Considerações finais
 
 Tomada a decisão balanceada:
 
