@@ -121,7 +121,17 @@ Salvamos e carregamos o modelo:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/c693495e-b925-48f3-a9a6-0bec795087ac)
 
-Ao avaliarmos o modelo com os dados de teste, alcançamos uma *acurácia* de 0.94.
+Ao avaliarmos o modelo com os dados de teste, alcançamos uma *acurácia* de **0.94**.
+
+
+**Transfer Learning: VGG16**
+
+Empregamos a técnica de transferência de aprendizagem (*transfer learning*),
+também com o dataset completo. Para isso, adotamos o modelo **VGG16**.
+
+Carregamos as bibliotecas necessárias:
+
+
 
 
 
