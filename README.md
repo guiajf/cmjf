@@ -52,7 +52,7 @@ Extraímos o conteúdo do arquivo compactado no Google Drive, com o comando:
 
 O modelo base foi reproduzido com algumas modificações, utilizando o dataset completo de 27.558 imagens. O número de neurônios na terceira camada convolucional foi aumentado para 64, enquanto as duas primeiras continuaram com 32. Foram adicionadas mais duas camadas convolucionais: a quarta com 64 neurônios e a quinta com 128. As características de pooling e dropout das novas camadas convolucionais permaneceram inalteradas. Os parâmetros treináveis foram reduzidos para 533.922.
 
-O conjunto de dados foi separado em conjuntos de treinamento, validação e teste:
+O *dataset* foi separado em conjuntos de treinamento, validação e teste:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/91b716a1-6533-418d-b162-3e105da0a2a0)
 
