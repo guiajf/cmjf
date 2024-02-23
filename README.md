@@ -102,7 +102,7 @@ Ao avaliar o modelo com os dados de teste, obteve-se uma acurácia de **0,94**.
 
 ## Transfer Learning: VGG16
 
-Aqui construíremos um novo modelo, também com o *dataset* completo, utilizando a técnica de transferência de aprendizagem (*transfer learning*). Usaremos como base o modelo VGG16 pré-treinado com o conjunto de dados *ImageNet*.
+Aqui construíremos um novo modelo, também com o *dataset* completo, utilizando a técnica de transferência de aprendizagem (*transfer learning*). Usaremos como base o modelo **VGG16** pré-treinado com o conjunto de dados *ImageNet*.
 
 A ideia do *Transfer Learning* é usar o modelo pré-treinado para extrair algumas características dos nossos dados. Essa capacidade de extrair características foi previamente aprendida no *ImageNet*.
 
@@ -116,7 +116,7 @@ Carregamos as bibliotecas necessárias:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/a4d85130-9719-4531-b965-a45bb98f9b7d)
 
-Carregamos o modelo VGG16 sem as últimas camadas totalmente conectadas (include_top=False):
+Carregamos o modelo **VGG16** sem as últimas camadas totalmente conectadas (include_top=False):
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/5801d7b5-9590-4e69-9d21-ed5855fed48a)
 
@@ -197,13 +197,13 @@ Ao avaliarmos o **Modelo K** com om dados de teste, obtivemos *acurácia* de 0.9
 ![image](https://github.com/guiajf/malaria/assets/152413615/41e5dc51-d781-461a-886a-9e4e5b3f4ace)
 
 
-O base_model da **VGG16**, quando utilizado sem o argumento *input_shape*, assume um tamanho de entrada padrão que é (224, 224, 3). Isso se deve à arquitetura original do VGG16 treinado no conjunto de dados *ImageNet*.
+O base_model da **VGG16**, quando utilizado sem o argumento *input_shape*, assume um tamanho de entrada padrão que é (224, 224, 3). Isso se deve à arquitetura original do **VGG16** treinado no conjunto de dados *ImageNet*.
 
 Para otimizar o desempenho e a acurácia, treinamos novamente o **Modelo K**, definido o parâmetro “input_shape”=(128,128,3)”:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/4f63d711-851d-47d2-b55b-ca342f5167ab)
 
-Então obtivemos uma *acurácia* de *0.9870* com os dados de teste.
+Então obtivemos uma *acurácia* de **0.9870** com os dados de teste.
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/ccba8a5f-e6dc-4b36-a17f-06e77e53cedb)
 
