@@ -136,6 +136,35 @@ também com o dataset completo. Para isso, adotamos o modelo **VGG16**.
 
 Carregamos as bibliotecas necessárias:
 
+![image](https://github.com/guiajf/malaria/assets/152413615/a4d85130-9719-4531-b965-a45bb98f9b7d)
+
+Carregamos o modelo VGG16 sem as últimas camadas totalmente conectadas (include_top=False):
+
+![image](https://github.com/guiajf/malaria/assets/152413615/5801d7b5-9590-4e69-9d21-ed5855fed48a)
+
+Fazemos com que as camadas do modelo pré-treinado não sejam alteradas durante o treino:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/29b6a1b0-2dea-4135-a27f-dcd7acb10bf0)
+
+Criamos o modelo sequential onde temos o VGG16 seguido das novas camadas conectadas:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/05a91e41-d6b3-4cb4-b457-8f42ab631b07)
+
+Apesar de inferior à metade do total, o número de parâmetros treináveis é o maior de todos os
+modelos propostos até então, chegando a quase 13 milhões.
+
+![image](https://github.com/guiajf/malaria/assets/152413615/7d8150ae-8ed3-42fb-b7ad-c5be46b7f9ff)
+
+Realizamos o ajuste do modelo em 50 épocas:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/a37d330b-26c5-42dd-9cfa-613b3474ef65)
+
+
+
+
+
+
+
 
 
 
