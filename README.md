@@ -1,4 +1,4 @@
-# Malária
+# Modelo de rede neural para diagnóstico da malária
 
 **Introdução**
 
