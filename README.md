@@ -183,12 +183,13 @@ Realizamos o preprocessamento dos dados e definimos o modelo:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/091bfa5b-f150-41cd-9998-0c678f6a9c0a)
 
+Em problemas médicos, especialmente ao lidar com imagens microscópicas, é comum trabalhar com resoluções mais altas para capturar detalhes cruciais.
+Por este motivo, foi utilizado o método *Upsampling2D*, para gerar mais pontos de dados de cada imagem do
+banco de dados completo.
 
-Foi utilizado o método *Upsampling2D*, para gerar mais pontos de dados de cada imagem do
-banco de dados completo, ao mesmo tempo em que definimos o decaimento da taxa de
-aprendizagem de acordo com as épocas.
+Adicionar a camada *upsampling* pode ter implicações positivas e negativas.
 
-Alguns motivos para adicionar a camada *upsampling*:
+**Positivas:**
 
 **1. Aumento da Resolução Espacial:**
 
@@ -202,6 +203,27 @@ Alguns motivos para adicionar a camada *upsampling*:
 
 - O *upsampling* pode permitir que o modelo explore informações mais detalhadas nas imagens de entrada antes de passar por camadas convolucionais. Isso pode ser útil se as características de alta resolução forem relevantes para a tarefa.
 
+**Negativas:**
+
+**1. Aumento da Resolução:**
+
+- O aumento da resolução das imagens pode fornecer mais detalhes e informações ao modelo. Isso pode ser benéfico para a tarefa específica, especialmente se detalhes finos são importantes.
+  
+**2. Overfitting Possível:**
+
+Aumentar significativamente a resolução das imagens pode resultar em um modelo mais complexo e propenso ao overfitting, especialmente se o conjunto de dados original não possui imagens de alta resolução. O overfitting ocorre quando o modelo se ajusta demais aos dados de treinamento e não generaliza bem para novos dados.
+
+**3. Dimensões Originais do dataset:**
+
+O dataset contém imagens redimensionadas de 64x64 pixels. Ao redimensioná-las para 128x128 pixels, alteramos drasticamente as características do conjunto de dados original. Isso pode afetar a capacidade do modelo de generalizar para imagens com as dimensões originais.
+
+**4. Uso de Recursos Computacionais:**
+
+Aumentar a resolução também aumenta o custo computacional. Modelos maiores demandam mais recursos durante o treinamento e a inferência.
+
+Definimos o decaimento da taxa de aprendizagem de acordo com as épocas.
+
+Experimentamos com diferentes resoluções para encontrar um equilíbrio adequado.
 
 A segunda chamada callback salva o melhor modelo, de acordo com o menor valor da função custo.
 
@@ -212,8 +234,11 @@ Ao avaliarmos o **Modelo K** com om dados de teste, obtivemos *acurácia* de 0.9
 ![image](https://github.com/guiajf/malaria/assets/152413615/41e5dc51-d781-461a-886a-9e4e5b3f4ace)
 
 
-O base_model da **VGG16**, quando utilizado sem o argumento *input_shape*, assume um tamanho de entrada padrão que é (224, 224, 3).
-Treinamos novamente o **Modelo K**, dessa vez incluindo o parâmetro “input_shape”=(128,128,3)”:
+O base_model da **VGG16**, quando utilizado sem o argumento *input_shape*, assume um tamanho de entrada padrão que é (224, 224, 3). Isso se deve à arquitetura original do VGG16 treinado no conjunto de dados *ImageNet*.
+
+Quando o conjunto de dados tem dimensões de imagem diferentes, o *base_model* tenta lidar com essas diferenças automaticamente. Isso pode levar a uma perda de informações importantes, pois o modelo pode tentar redimensionar ou cortar as imagens para ajustá-las ao tamanho esperado.
+
+Para otimizar o desempenho e a acurácia, treinamos novamente o **Modelo K**, definido o parâmetro “input_shape”=(128,128,3)”:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/4f63d711-851d-47d2-b55b-ca342f5167ab)
 
