@@ -159,6 +159,11 @@ Realizamos o ajuste do modelo em 50 épocas:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/a37d330b-26c5-42dd-9cfa-613b3474ef65)
 
+Fizemos as predições com os dados de teste, foi obtida acurácia de **0.89**:
+
+![image](https://github.com/guiajf/malaria/assets/152413615/ed68a064-4d63-4ac3-9ee5-3e3d0a2f0ded)
+
+
 
 
 
