@@ -17,7 +17,7 @@ O dataset consiste em 27.558 imagens de células, equilibrado com igual quantida
 
 ## Indicadores de base
 
-O código em Python foi executado no Google Colab para reproduzir modelos de rede neural convolucional (CNN), utilizando a API Keras do TensorFlow, capazes de classificar imagens do conjunto de dados mencionado.
+O código em Python foi executado no Google Colab para reproduzir modelos de rede neural convolucional (CNN), utilizando a API Keras do TensorFlow, capazes de classificar imagens do conjunto de dados mencionado. Lidamos então com um problema de **classificação**, que utiliza o *aprendizado supervisionado* como método de treinamento da rede neural. 
 
 O modelo inicial contém 1.200.322 parâmetros treináveis, com três camadas convolucionais e duas camadas densamente conectadas. Os dados de entrada inicialmente consistem em 1000 amostras de cada categoria (infectadas e não infectadas), com resolução de 64x64x3, dos quais 20% foram separados para teste. Todas as camadas convolucionais possuem 32 neurônios, filtros 3x3, função de ativação **ReLU**, *pooling* de 2x2 e *dropout* de 0,2. O parâmetro *"same"* foi utilizado para preservar a dimensão espacial. Em seguida, há duas camadas densamente conectadas, com 512 e 256 neurônios, respectivamente, com função de ativação **ReLU**, seguidas por *dropout* com taxa de 0,2. O modelo foi configurado com o otimizador **ADAM** e treinado por 40 épocas. Na avaliação do modelo com os dados de teste, a acurácia alcançou **0.96**, indicando um desempenho satisfatório.
 
