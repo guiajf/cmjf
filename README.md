@@ -1,4 +1,4 @@
-# Modelo de rede neural para diagnóstico de malária
+# Modelos de rede neural para diagnóstico de malária
 
 ## Introdução
 
@@ -209,6 +209,12 @@ Então obtivemos uma *acurácia* de **0.9870** com os dados de teste, desempenho
 
 
 É importante destacar que usar o base_model da **VGG16** sem especificar o argumento *input_shape* pode resultar em perda de informações cruciais, principalmente ao lidar com conjuntos de dados que possuem dimensões de imagem variadas.
+
+**Créditos**
+
+Este projeto resulta das modificações implementadas no *modelo base* fornecido pelo Professor Sárvio Valente, responsável pela Disciplina "Tópicos Especiais em Inteligência Artificial", do Curso de Pós-Graduação em Inteligência Artificial e Computacional, da Universidade Federal de Viçosa, para buscar melhorias de predição.
+
+**Referências**
 
 
 
