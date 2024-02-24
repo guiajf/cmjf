@@ -117,7 +117,7 @@ Carregamos as bibliotecas necessárias:
 ![image](https://github.com/guiajf/malaria/assets/152413615/a4d85130-9719-4531-b965-a45bb98f9b7d)
 
 Carregamos o modelo **VGG16** sem as últimas camadas totalmente conectadas (include_top=False).
-Redimensionamos as imagens de entrada para o tamanho esperado pelo modelo VGG16 e, em seguida, passamos essas imagens pelo modelo VGG16 pré-treinado para obter as saídas correspondentes:
+Redimensionamos as imagens de entrada para o tamanho esperado pelo modelo VGG16 e, em seguida, passamos essas imagens pelo modelo pré-treinado para obter as saídas correspondentes:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/5801d7b5-9590-4e69-9d21-ed5855fed48a)
 
