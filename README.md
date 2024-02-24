@@ -215,7 +215,7 @@ Então obtivemos uma *acurácia* de **0.9870** com os dados de teste, desempenho
 
 **Créditos**
 
-*Este projeto é resultado das modificações feitas no modelo base desenvolvido pelo Professor Sárvio Valente, da disciplina "Tópicos Especiais em Inteligência Artificial", do Curso de Pós-Graduação em Inteligência Artificial e Computacional da Universidade Federal de Viçosa. O objetivo é aprimorar as previsões em um problema de classificação binária.*
+*Este projeto é resultado das modificações feitas no modelo base desenvolvido pelo Professor Sárvio Valente, da disciplina "Tópicos Especiais em Inteligência Artificial", do Curso de Pós-Graduação em Inteligência Artificial e Computacional da Universidade Federal de Viçosa. O objetivo é aprimorar as predições em um problema de classificação binária.*
 
 
 
