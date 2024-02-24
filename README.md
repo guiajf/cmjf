@@ -212,7 +212,7 @@ Então obtivemos uma *acurácia* de **0.9870** com os dados de teste, desempenho
 
 **Créditos**
 
-Este projeto resulta das modificações implementadas no *modelo base* fornecido pelo Professor Sárvio Valente, responsável pela Disciplina "Tópicos Especiais em Inteligência Artificial", do Curso de Pós-Graduação em Inteligência Artificial e Computacional, da Universidade Federal de Viçosa, para buscar melhorias de predição.
+*Este projeto resulta das modificações implementadas no *modelo base* fornecido pelo Professor Sárvio Valente, responsável pela Disciplina "Tópicos Especiais em Inteligência Artificial", do Curso de Pós-Graduação em Inteligência Artificial e Computacional, da Universidade Federal de Viçosa, para buscar melhorias de predição.*
 
 **Referências**
 
