@@ -114,7 +114,7 @@ Essa abordagem é especialmente útil quando o conjunto de dados de destino é p
 
 Adaptamos o exemplo deste [notebook](https://colab.research.google.com/github/MatchLab-Imperial/deep-learning-course/blob/master/04_Common_CNN_architectures.ipynb#scrollTo=zwo-H2oSfQ0s).
 
-Carregamos as bibliotecas necessárias:
+Importamos as bibliotecas necessárias:
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/a4d85130-9719-4531-b965-a45bb98f9b7d)
 
