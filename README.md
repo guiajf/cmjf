@@ -112,7 +112,7 @@ Para que o modelo seja treinado para o contexto dos nossos dados, excluímos as 
 
 Essa abordagem é especialmente útil quando o conjunto de dados de destino é pequeno, em comparação com o conjunto de dados original no qual o *base_model* foi treinado.
 
-Adaptamos o exemplo deste [notebook](https://colab.research.google.com/github/MatchLab-Imperial/deep-learning-course/blob/master/04_Common_CNN_architectures.ipynb#scrollTo=zwo-H2oSfQ0s)
+Adaptamos o exemplo deste [notebook](https://colab.research.google.com/github/MatchLab-Imperial/deep-learning-course/blob/master/04_Common_CNN_architectures.ipynb#scrollTo=zwo-H2oSfQ0s).
 
 Carregamos as bibliotecas necessárias:
 
