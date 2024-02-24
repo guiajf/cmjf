@@ -80,7 +80,7 @@ tipo de problema estudado.
 
 ## Modelo *least_val_loss*
 
-Um novo modelo foi definido como uma função adaptada de Kylie Ying (*Machine Learning for Everybody – Full Course*, disponível em https://www.youtube.com/watch?v=i_LwzRVP7bg). 
+Um novo modelo definido como uma função foi adaptado do [notebook](https://colab.research.google.com/drive/16w3TDn_tAku17mum98EWTmjaLHAJcsk0?usp=sharing) de Kylie Ying - *Machine Learning for Everybody – Full Course* (https://www.youtube.com/watch?v=i_LwzRVP7bg). 
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/fce6fe72-7149-4469-b7ca-ff31ef4c177a)
 
