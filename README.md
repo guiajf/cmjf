@@ -214,7 +214,17 @@ model = load_model('malaria_least_loss_model.h5')
 Ao avaliar o modelo com os dados de teste, obteve-se uma acurácia de **0.94**.
 
 ```
+from sklearn.metrics import classification_report
+print(classification_report(y_test, y_pred))
 
+              precision    recall  f1-score   support
+
+           0       0.89      1.00      0.94      2993
+           1       1.00      0.88      0.94      2993
+
+    accuracy                           0.94      5986
+   macro avg       0.94      0.94      0.94      5986
+weighted avg       0.94      0.94      0.94      5986
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/6164b8a2-708a-44f7-ba9e-6cb05df2226b)
@@ -237,10 +247,18 @@ Adaptamos o exemplo deste [notebook](https://colab.research.google.com/github/Ma
 
 Importamos as bibliotecas necessárias:
 
+```
+
+```
+
 ![image](https://github.com/guiajf/malaria/assets/152413615/a4d85130-9719-4531-b965-a45bb98f9b7d)
 
 Carregamos o modelo **VGG16** sem as últimas camadas totalmente conectadas (include_top=False).
 Redimensionamos as imagens de entrada para o tamanho esperado pelo modelo VGG16 e, em seguida, passamos essas imagens pelo modelo pré-treinado para obter as saídas correspondentes:
+
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/5801d7b5-9590-4e69-9d21-ed5855fed48a)
 
