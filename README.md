@@ -277,7 +277,8 @@ pre_model = Model(newInput, newOutputs)
 Fazemos com que as camadas do modelo pré-treinado não sejam alteradas durante o treino:
 
 ```
-
+for layer in pre_model.layers:
+  layer.trainable = False
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/29b6a1b0-2dea-4135-a27f-dcd7acb10bf0)
@@ -285,7 +286,25 @@ Fazemos com que as camadas do modelo pré-treinado não sejam alteradas durante 
 Criamos o modelo sequencial, com o **VGG16** acompanhado de novas camadas conectadas:
 
 ```
+# Criamos então um modelo
+def define_model():
+  model = Sequential()
 
+  model.add(pre_model)
+
+  model.add(Flatten())
+
+  model.add(Dense(512, activation='relu'))
+  model.add(Dropout(0.2))
+
+  model.add(Dense(256, activation='relu'))
+  model.add(Dropout(0.2))
+
+  model.add(Dense(2, activation='sigmoid'))
+
+  opt = Adam(learning_rate=0.001)
+  model.compile(loss='binary_crossentropy', optimizer=opt, metrics=['accuracy'])
+  return model
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/05a91e41-d6b3-4cb4-b457-8f42ab631b07)
@@ -293,9 +312,17 @@ Criamos o modelo sequencial, com o **VGG16** acompanhado de novas camadas conect
 Apesar de inferior à metade do total, o número de parâmetros treináveis é o maior de todos os
 modelos propostos até então, chegando a quase 13 milhões.
 
+```
+
+```
+
 ![image](https://github.com/guiajf/malaria/assets/152413615/7d8150ae-8ed3-42fb-b7ad-c5be46b7f9ff)
 
 Realizamos o ajuste do modelo em 50 épocas:
+
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/a37d330b-26c5-42dd-9cfa-613b3474ef65)
 
