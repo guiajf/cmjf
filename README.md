@@ -78,8 +78,7 @@ O modelo base foi reproduzido com algumas modificações, utilizando o dataset c
 O *dataset* foi separado em conjuntos de treinamento, validação e teste:
 
 ```
-from sklearn.model_selection import train_test_split
-
+# from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 0)
 X_train, X_val, y_train, y_val  = train_test_split(X_train, y_train, test_size=0.20, random_state=0)
 ```
@@ -89,12 +88,20 @@ X_train, X_val, y_train, y_val  = train_test_split(X_train, y_train, test_size=0
 O modelo foi ajustado em 100 épocas:
 
 ```
-
+history = model.fit(X_train,
+                    y_train,
+                    batch_size = 32,
+                    validation_split = 0.1,
+                    epochs = 100, verbose = 1)
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/b89cbf25-8e7e-4d50-8ffc-f91dd69b94b4)
 
 O modelo alcançou uma acurácia de **0.9459** com os dados de validação:
+
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/dc7afbcb-254e-434f-93f2-298f85a51497)
 
