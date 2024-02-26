@@ -123,7 +123,17 @@ Então, observamos uma queda considerável do
 indicador, calculado através da função **classification_report:**
 
 ```
+from sklearn.metrics import classification_report
+print(classification_report(y_test, y_pred))
 
+     precision    recall  f1-score   support
+
+           0       0.57      1.00      0.72      5512
+           1       1.00      0.24      0.39      5512
+
+    accuracy                           0.62     11024
+   macro avg       0.78      0.62      0.56     11024
+weighted avg       0.78      0.62      0.56     11024
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/6ad0ab21-5aab-47f3-9786-c72650d9b48c)
@@ -137,10 +147,17 @@ tipo de problema estudado.
 
 Um novo modelo definido como uma função foi adaptado do [notebook](https://colab.research.google.com/drive/16w3TDn_tAku17mum98EWTmjaLHAJcsk0?usp=sharing) de Kylie Ying - *Machine Learning for Everybody – Full Course* (https://www.youtube.com/watch?v=i_LwzRVP7bg). 
 
+```
+
+```
+
 ![image](https://github.com/guiajf/malaria/assets/152413615/fce6fe72-7149-4469-b7ca-ff31ef4c177a)
 
 
 Foram testados diferentes hiperparâmetros, e o modelo com o menor valor de função custo foi armazenado.:
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/303b895d-e5ab-4918-b46e-8b55a063f3a7)
 
