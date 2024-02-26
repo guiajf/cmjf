@@ -28,11 +28,11 @@ O modelo base foi reproduzido com 2000 imagens, desta vez em 100 épocas.
 ```
 history = model.fit(X_train, y_train, batch_size = 32, validation_split = 0.1, epochs = 100, verbose = 1)
 ```
-![image](https://github.com/guiajf/malaria/assets/152413615/604ef65f-1fff-4f24-a584-f9aa62fe30e5)
+
 
 Observou-se que a partir da 40ª época, a performance estabilizou, sem melhorias significativas.
 
-![image](https://github.com/guiajf/malaria/assets/152413615/46930631-c7ec-4c46-b159-1d047fa679db)
+
 
 A acurácia do modelo com os dados de teste foi de **0.95**, ligeiramente abaixo do índice base.
 
@@ -43,7 +43,7 @@ print(score)
 0.949999988079071
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/3f4e5750-1921-4f0f-bd70-36480136be7a)
+
 
 
 ## Dataset completo
@@ -58,7 +58,7 @@ através do seguinte comando:
 !wget -P /content/drive/MyDrive/ELT579/Problema4 https://data.lhncbc.nlm.nih.gov/public/Malaria/cell_images.zip
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/89560831-b615-451a-bb7a-de05a57be249)
+
 
 
 Extraímos o conteúdo do arquivo compactado no Google Drive, com o comando:
@@ -70,7 +70,7 @@ zip_ref.extractall('/content/drive/MyDrive/ELT579/Problema4')
 zip_ref.close()
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/c0aca8ac-6d69-4969-b1c5-a2d61dc023e9)
+
 
 O modelo base foi reproduzido com algumas modificações, utilizando o dataset completo de 27.558 imagens. O número de neurônios na terceira camada convolucional foi aumentado para 64, enquanto as duas primeiras continuaram com 32. Foram adicionadas mais duas camadas convolucionais: a quarta com 64 neurônios e a quinta com 128. As características de pooling e dropout das novas camadas convolucionais permaneceram inalteradas. Os parâmetros treináveis foram reduzidos para 533.922.
 
@@ -82,7 +82,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, rand
 X_train, X_val, y_train, y_val  = train_test_split(X_train, y_train, test_size=0.20, random_state=0)
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/91b716a1-6533-418d-b162-3e105da0a2a0)
+
 
 O modelo foi ajustado em 100 épocas:
 
@@ -94,7 +94,7 @@ history = model.fit(X_train,
                     epochs = 100, verbose = 1)
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/b89cbf25-8e7e-4d50-8ffc-f91dd69b94b4)
+
 
 O modelo alcançou uma acurácia de **0.9459** com os dados de validação:
 
@@ -105,7 +105,7 @@ print(score)
 0.9548752903938293
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/dc7afbcb-254e-434f-93f2-298f85a51497)
+
 
 Realizamos a predição com os dados de teste:
 
@@ -116,7 +116,7 @@ y_test = y_test.astype(int).reshape(-1,)
 ```
 
 
-![image](https://github.com/guiajf/malaria/assets/152413615/1c9e608e-5ab9-4319-88fa-1f5f096e69c5)
+
 
 Então, observamos uma queda considerável do
 indicador, calculado através da função **classification_report:**
@@ -135,7 +135,7 @@ print(classification_report(y_test, y_pred))
 weighted avg       0.78      0.62      0.56     11024
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/6ad0ab21-5aab-47f3-9786-c72650d9b48c)
+
 
 
 
@@ -175,7 +175,7 @@ def train_model(X_train, y_train, conv_nodes, dense_nodes, dropout_prob, lr, bat
   return nn_model, history
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/fce6fe72-7149-4469-b7ca-ff31ef4c177a)
+
 
 
 Foram testados diferentes hiperparâmetros, e o modelo com o menor valor de função custo foi armazenado.:
@@ -197,7 +197,7 @@ for conv_nodes in [32, 64, 128]:
               least_loss_model = model
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/303b895d-e5ab-4918-b46e-8b55a063f3a7)
+
 
 
 Salvamos e carregamos o modelo:
@@ -209,7 +209,7 @@ from tensorflow.keras.models import load_model
 model = load_model('malaria_least_loss_model.h5')
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/c693495e-b925-48f3-a9a6-0bec795087ac)
+
 
 Ao avaliar o modelo com os dados de teste, obteve-se uma acurácia de **0.94**.
 
@@ -227,7 +227,7 @@ print(classification_report(y_test, y_pred))
 weighted avg       0.94      0.94      0.94      5986
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/6164b8a2-708a-44f7-ba9e-6cb05df2226b)
+
 
 
 
@@ -256,7 +256,7 @@ from keras.layers import Dense, Dropout, Flatten
 from keras.preprocessing.image import ImageDataGenerator`
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/a4d85130-9719-4531-b965-a45bb98f9b7d)
+
 
 Carregamos o modelo **VGG16** sem as últimas camadas totalmente conectadas (include_top=False).
 Redimensionamos as imagens de entrada para o tamanho esperado pelo modelo VGG16 e, em seguida, passamos essas imagens pelo modelo pré-treinado para obter as saídas correspondentes:
@@ -270,7 +270,7 @@ newOutputs = pre_model(resizedImg)
 pre_model = Model(newInput, newOutputs)
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/5801d7b5-9590-4e69-9d21-ed5855fed48a)
+
 
 Fazemos com que as camadas do modelo pré-treinado não sejam alteradas durante o treino:
 
@@ -279,7 +279,7 @@ for layer in pre_model.layers:
   layer.trainable = False
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/29b6a1b0-2dea-4135-a27f-dcd7acb10bf0)
+
 
 Criamos o modelo sequencial, com o **VGG16** acompanhado de novas camadas conectadas:
 
@@ -304,7 +304,7 @@ def define_model():
   return model
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/05a91e41-d6b3-4cb4-b457-8f42ab631b07)
+
 
 Apesar de inferior à metade do total, o número de parâmetros treináveis é o maior de todos os
 modelos propostos até então, chegando a quase 13 milhões.
@@ -337,7 +337,7 @@ Trainable params: 12977410 (49.50 MB)
 Non-trainable params: 14714688 (56.13 MB)
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/7d8150ae-8ed3-42fb-b7ad-c5be46b7f9ff)
+
 
 Realizamos o ajuste do modelo em 50 épocas:
 
@@ -345,7 +345,6 @@ Realizamos o ajuste do modelo em 50 épocas:
 model.fit(X_train, y_train, batch_size=32, epochs=50)
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/a37d330b-26c5-42dd-9cfa-613b3474ef65)
 
 Fizemos as predições com os dados de teste, foi obtida acurácia de **0.89**:
 
@@ -367,7 +366,7 @@ print(classification_report(y_test, y_pred))
 weighted avg       0.91      0.89      0.89      5986
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/ed68a064-4d63-4ac3-9ee5-3e3d0a2f0ded)
+
 
 ## Modelo K
 
@@ -413,44 +412,7 @@ if __name__ == "__main__":
                                             pooling='avg')
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/091bfa5b-f150-41cd-9998-0c678f6a9c0a)
 
-Em problemas médicos, especialmente ao lidar com imagens microscópicas, é comum trabalhar com resoluções mais altas para capturar detalhes cruciais.
-Por este motivo, foi utilizado o método *Upsampling2D*, para gerar mais pontos de dados de cada imagem do
-banco de dados completo.
-
-Adicionar a camada *upsampling* pode ter implicações positivas e negativas.
-
-**Positivas:**
-
-**1. Aumento da Resolução Espacial:**
-
-- O upsampling aumenta a resolução espacial dos dados de entrada. Isso pode ser benéfico se a resolução original das imagens do conjunto de dados for           relativamente baixa. Aumentar a resolução antes de passar pelos recursos aprendidos pelo *base_model* pode ajudar a preservar mais detalhes.
-
-**2. Adaptação à Arquitetura do VGG16:**
-
-- A arquitetura **VGG16**, pré-treinada no **ImageNet**, espera entradas com uma resolução específica (224x224 pixels). O *upsampling* pode ser usado para ajustar as dimensões das imagens do conjunto de dados para corresponder a essa resolução esperada.
-
-**3. Exploração de Recursos Aprendidos:**
-
-- O *upsampling* pode permitir que o modelo explore informações mais detalhadas nas imagens de entrada antes de passar por camadas convolucionais. Isso pode ser útil se as características de alta resolução forem relevantes para a tarefa.
-
-**Negativas:**
-
-**1. Overfitting:**
-
-Aumentar significativamente a resolução das imagens pode resultar em um modelo mais complexo e propenso ao overfitting, especialmente se o conjunto de dados original não possui imagens de alta resolução. O overfitting ocorre quando o modelo se ajusta demais aos dados de treinamento e não generaliza bem para novos dados.
-
-**2. Dimensões Originais do dataset:**
-
-O dataset contém imagens redimensionadas de 64x64 pixels. Ao redefini-las para 128x128 pixels, alteramos drasticamente as características do conjunto de dados original. Isso pode afetar a capacidade do modelo de generalizar para imagens com as dimensões originais.
-
-**3. Uso de Recursos Computacionais:**
-
-Aumentar a resolução também aumenta o custo computacional. Modelos maiores demandam mais recursos durante o treinamento e a inferência.
-
-
-## Considerações finais
 
 A arquitetura foi definida de forma balanceada, incluindo o decaimento da taxa de aprendizagem, experimentações com diferentes resoluções e o armazenamento do melhor modelo:
 
@@ -485,7 +447,15 @@ history = model.fit(x=X_train_p, y=Y_train_p,
           )
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/30c4b04a-a25a-4ce6-88a1-27a923cbffa6)
+
+
+Em problemas médicos, especialmente ao lidar com imagens microscópicas, é comum trabalhar com resoluções mais altas para capturar detalhes cruciais.
+Por este motivo, foi utilizado o método *Upsampling2D*, para gerar mais pontos de dados de cada imagem do
+banco de dados completo.
+
+
+
+## Considerações finais
 
 Ao avaliarmos o **Modelo K** com os dados de teste, obtivemos *acurácia* de **0.9846**:
 
@@ -499,7 +469,6 @@ Test loss: 0.061920762062072754
 Test accuracy: 0.9846359491348267
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/41e5dc51-d781-461a-886a-9e4e5b3f4ace)
 
 
 O base_model da **VGG16**, quando utilizado sem o argumento *input_shape*, assume um tamanho de entrada padrão que é (224, 224, 3). Isso se deve à arquitetura original do **VGG16** treinado no conjunto de dados *ImageNet*.
@@ -513,7 +482,7 @@ Para otimizar o desempenho e a acurácia, treinamos novamente o **Modelo K**, de
                                             input_shape=(128, 128,3))
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/4f63d711-851d-47d2-b55b-ca342f5167ab)
+
 
 Então obtivemos uma *acurácia* de **0.9870** com os dados de teste, desempenho superior ao índice de referência e aos resultados de todos os modelos testados. Significa que, se o modelo faz 100 predições, acerta 98 (ou quase 99) delas. Portanto, a performance do modelo com os dados de teste pode ser considerada excelente.
 
@@ -527,7 +496,7 @@ Test loss: 0.24626491963863373
 Test accuracy: 0.9869695901870728
 ```
 
-![image](https://github.com/guiajf/malaria/assets/152413615/ccba8a5f-e6dc-4b36-a17f-06e77e53cedb)
+
 
 
 É importante destacar que usar o base_model da **VGG16** sem especificar o argumento *input_shape* pode resultar em perda de informações cruciais, principalmente ao lidar com conjuntos de dados que possuem dimensões de imagem variadas.
