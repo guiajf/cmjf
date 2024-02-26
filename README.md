@@ -100,17 +100,31 @@ history = model.fit(X_train,
 O modelo alcançou uma acurácia de **0.9459** com os dados de validação:
 
 ```
-
+_,score = model.evaluate(X_val, y_val)
+print(score)
+138/138 [==============================] - 8s 61ms/step - loss: 0.1798 - accuracy: 0.9549
+0.9548752903938293
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/dc7afbcb-254e-434f-93f2-298f85a51497)
 
 Realizamos a predição com os dados de teste:
 
+```
+y_pred = model.predict(X_test)
+y_pred = y_pred.astype(int).reshape(-1,)
+y_test = y_test.astype(int).reshape(-1,)
+```
+
+
 ![image](https://github.com/guiajf/malaria/assets/152413615/1c9e608e-5ab9-4319-88fa-1f5f096e69c5)
 
 Então, observamos uma queda considerável do
 indicador, calculado através da função **classification_report:**
+
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/6ad0ab21-5aab-47f3-9786-c72650d9b48c)
 
