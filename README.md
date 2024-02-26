@@ -148,7 +148,32 @@ tipo de problema estudado.
 Um novo modelo definido como uma função foi adaptado do [notebook](https://colab.research.google.com/drive/16w3TDn_tAku17mum98EWTmjaLHAJcsk0?usp=sharing) de Kylie Ying - *Machine Learning for Everybody – Full Course* (https://www.youtube.com/watch?v=i_LwzRVP7bg). 
 
 ```
+def train_model(X_train, y_train, conv_nodes, dense_nodes, dropout_prob, lr, batch_size, epochs):
+  nn_model = tf.keras.Sequential([
+      tf.keras.layers.Conv2D(conv_nodes, kernel_size = (3,3), activation = 'relu', padding = 'same',  input_shape=(64,64,3)),
+      tf.keras.layers.MaxPooling2D(pool_size = (2,2)),
+      tf.keras.layers.Dropout(dropout_prob),
+      tf.keras.layers.Conv2D(conv_nodes, kernel_size = (3,3), activation = 'relu', padding = 'same'),
+      tf.keras.layers.MaxPooling2D(pool_size = (2,2)),
+      tf.keras.layers.Dropout(dropout_prob),
+      tf.keras.layers.Conv2D(conv_nodes, kernel_size = (3,3), activation = 'relu', padding = 'same'),
+      tf.keras.layers.MaxPooling2D(pool_size = (2,2)),
+      tf.keras.layers.Dropout(dropout_prob),
+      tf.keras.layers.Flatten(),
+      tf.keras.layers.Dense(dense_nodes, activation = 'relu'),
+      tf.keras.layers.Dropout(rate = 0.2),
+      tf.keras.layers.Dense(dense_nodes, activation = 'relu'),
+      tf.keras.layers.Dropout(rate = 0.2),
+      tf.keras.layers.Dense(2, activation= 'sigmoid'),
+])
 
+  nn_model.compile(optimizer=tf.keras.optimizers.Adam(lr), loss='binary_crossentropy',
+                  metrics=['accuracy'])
+  history = nn_model.fit(
+    X_train, y_train, epochs=epochs, batch_size=batch_size, validation_split=0.2, verbose=0
+  )
+
+  return nn_model, history
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/fce6fe72-7149-4469-b7ca-ff31ef4c177a)
