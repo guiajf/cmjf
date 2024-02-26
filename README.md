@@ -203,7 +203,10 @@ for conv_nodes in [32, 64, 128]:
 Salvamos e carregamos o modelo:
 
 ```
+model.save('malaria_least_loss_model.h5')
 
+from tensorflow.keras.models import load_model
+model = load_model('malaria_least_loss_model.h5')
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/c693495e-b925-48f3-a9a6-0bec795087ac)
