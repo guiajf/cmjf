@@ -180,6 +180,7 @@ def train_model(X_train, y_train, conv_nodes, dense_nodes, dropout_prob, lr, bat
 
 
 Foram testados diferentes hiperparâmetros, e o modelo com o menor valor de função custo foi armazenado.:
+
 ```
 least_val_loss = float('inf')
 least_loss_model = None
@@ -247,7 +248,8 @@ Adaptamos o exemplo deste [notebook](https://colab.research.google.com/github/Ma
 
 Importamos as bibliotecas necessárias:
 
-``from keras.applications.vgg16 import VGG16, preprocess_input
+```
+from keras.applications.vgg16 import VGG16, preprocess_input
 from keras.models import Model, Sequential
 from keras.layers import Lambda, Input
 from keras.optimizers import Adam
