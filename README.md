@@ -25,6 +25,7 @@ O modelo inicial contém 1.200.322 parâmetros treináveis, com três camadas co
 
 O modelo base foi reproduzido com 2000 imagens, desta vez em 100 épocas. 
 
+'history = model.fit(X_train, y_train, batch_size = 32, validation_split = 0.1, epochs = 100, verbose = 1)'
 ![image](https://github.com/guiajf/malaria/assets/152413615/604ef65f-1fff-4f24-a584-f9aa62fe30e5)
 
 Observou-se que a partir da 40ª época, a performance estabilizou, sem melhorias significativas.
