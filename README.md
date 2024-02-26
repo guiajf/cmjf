@@ -53,6 +53,11 @@ Reproduzimos o modelo base, com algumas modificações, utilizando o dataset com
 https://lhncbc.nlm.nih.gov/LHC-research/LHC-projects/image-processing/malaria-datasheet.html,
 através do seguinte comando:
 
+```
+# Definir o endereço para baixar arquivo
+!wget -P /content/drive/MyDrive/ELT579/Problema4 https://data.lhncbc.nlm.nih.gov/public/Malaria/cell_images.zip
+```
+
 ![image](https://github.com/guiajf/malaria/assets/152413615/89560831-b615-451a-bb7a-de05a57be249)
 
 
