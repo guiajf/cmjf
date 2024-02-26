@@ -476,7 +476,10 @@ O base_model da **VGG16**, quando utilizado sem o argumento *input_shape*, assum
 Para otimizar o desempenho e a acurácia, treinamos novamente o **Modelo K**, definido o parâmetro “input_shape”=(128,128,3)”:
 
 ```
-
+    base_model = K.applications.vgg16.VGG16(include_top=False,
+                                            weights='imagenet',
+                                            pooling='avg',
+                                            input_shape=(128, 128,3))
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/4f63d711-851d-47d2-b55b-ca342f5167ab)
@@ -484,7 +487,13 @@ Para otimizar o desempenho e a acurácia, treinamos novamente o **Modelo K**, de
 Então obtivemos uma *acurácia* de **0.9870** com os dados de teste, desempenho superior ao índice de referência e aos resultados de todos os modelos testados. Significa que, se o modelo faz 100 predições, acerta 98 (ou quase 99) delas. Portanto, a performance do modelo com os dados de teste pode ser considerada excelente.
 
 ```
+score = model.evaluate(X_test_p, Y_test_p)
+print('Test loss:', score[0])
+print('Test accuracy:', score[1])
 
+94/94 [==============================] - 4s 40ms/step - loss: 0.2463 - accuracy: 0.9870
+Test loss: 0.24626491963863373
+Test accuracy: 0.9869695901870728
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/ccba8a5f-e6dc-4b36-a17f-06e77e53cedb)
