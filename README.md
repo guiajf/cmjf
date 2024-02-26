@@ -64,7 +64,6 @@ através do seguinte comando:
 Extraímos o conteúdo do arquivo compactado no Google Drive, com o comando:
 
 ```
-# Extrair conteúdo dos arquivos comprimidos
 local_zip = '/content/drive/MyDrive/ELT579/Problema4/cell_images.zip'
 zip_ref = zipfile.ZipFile(local_zip, 'r')
 zip_ref.extractall('/content/drive/MyDrive/ELT579/Problema4')
@@ -263,7 +262,6 @@ Carregamos o modelo **VGG16** sem as últimas camadas totalmente conectadas (inc
 Redimensionamos as imagens de entrada para o tamanho esperado pelo modelo VGG16 e, em seguida, passamos essas imagens pelo modelo pré-treinado para obter as saídas correspondentes:
 
 ```
-# Carregamos o modelo VGG16 sem as últimas camadas totalmente conectadas (include_top=False)
 pre_model = VGG16(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
 
 newInput = Input(batch_shape=(None, 64, 64, 3))
@@ -286,7 +284,6 @@ for layer in pre_model.layers:
 Criamos o modelo sequencial, com o **VGG16** acompanhado de novas camadas conectadas:
 
 ```
-# Criamos então um modelo
 def define_model():
   model = Sequential()
 
@@ -313,7 +310,31 @@ Apesar de inferior à metade do total, o número de parâmetros treináveis é o
 modelos propostos até então, chegando a quase 13 milhões.
 
 ```
+model = define_model()
+model.summary()
 
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ model (Functional)          (None, 7, 7, 512)         14714688  
+                                                                 
+ flatten (Flatten)           (None, 25088)             0         
+                                                                 
+ dense (Dense)               (None, 512)               12845568  
+                                                                 
+ dropout (Dropout)           (None, 512)               0         
+                                                                 
+ dense_1 (Dense)             (None, 256)               131328    
+                                                                 
+ dropout_1 (Dropout)         (None, 256)               0         
+                                                                 
+ dense_2 (Dense)             (None, 2)                 514       
+                                                                 
+=================================================================
+Total params: 27692098 (105.64 MB)
+Trainable params: 12977410 (49.50 MB)
+Non-trainable params: 14714688 (56.13 MB)
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/7d8150ae-8ed3-42fb-b7ad-c5be46b7f9ff)
@@ -327,6 +348,10 @@ Realizamos o ajuste do modelo em 50 épocas:
 ![image](https://github.com/guiajf/malaria/assets/152413615/a37d330b-26c5-42dd-9cfa-613b3474ef65)
 
 Fizemos as predições com os dados de teste, foi obtida acurácia de **0.89**:
+
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/ed68a064-4d63-4ac3-9ee5-3e3d0a2f0ded)
 
