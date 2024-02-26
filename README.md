@@ -378,7 +378,39 @@ Paulo Morillo (2020) - *“The transfer learning experience with VGG16 and Cifar
 Realizamos o preprocessamento dos dados e definimos o modelo:
 
 ```
+import numpy as np
+import tensorflow
+from tensorflow import keras as K
+from sklearn.model_selection import train_test_split
 
+def preprocess_data(X, Y):
+    """ This method has the preprocess to train a model """
+    X = X.astype('float32')
+    X_p = K.applications.vgg16.preprocess_input(X)
+    Y_p = K.utils.to_categorical(Y, 2)  # Assuming binary classification, adjust accordingly
+    return (X_p, Y_p)
+
+if __name__ == "__main__":
+    # Load your custom dataset
+    dataset = np.array(dataset)
+    label = np.array(label)
+
+    # Divisão dos dados em treinamento, validação e teste
+
+    X_train, X_temp, Y_train, Y_temp = train_test_split(dataset, label, test_size=0.2, random_state=42)
+    X_val, X_test, Y_val, Y_test = train_test_split(X_temp, Y_temp, test_size=0.5, random_state=42)
+
+    # Split the dataset into training and validation sets
+    #Xt, X, Yt, Y = train_test_split(dataset, label, test_size=0.2, random_state=42)
+
+    X_train_p, Y_train_p = preprocess_data(X_train, Y_train)
+    X_val_p, Y_val_p = preprocess_data(X_val, Y_val)
+    X_test_p, Y_test_p = preprocess_data(X_test, Y_test)
+
+    # Now you can use Xt, Yt for training and X, Y for validation
+    base_model = K.applications.vgg16.VGG16(include_top=False,
+                                            weights='imagenet',
+                                            pooling='avg')
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/091bfa5b-f150-41cd-9998-0c678f6a9c0a)
@@ -427,7 +459,13 @@ As decisões foram tomadas de forma balanceada, incluindo o decaimento da taxa d
 Ao avaliarmos o **Modelo K** com os dados de teste, obtivemos *acurácia* de **0.9846**:
 
 ```
+score = model.evaluate(X_test_p, Y_test_p)
+print('Test loss:', score[0])
+print('Test accuracy:', score[1])
 
+47/47 [==============================] - 2s 39ms/step - loss: 0.0619 - accuracy: 0.9846
+Test loss: 0.061920762062072754
+Test accuracy: 0.9846359491348267
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/41e5dc51-d781-461a-886a-9e4e5b3f4ace)
@@ -437,9 +475,17 @@ O base_model da **VGG16**, quando utilizado sem o argumento *input_shape*, assum
 
 Para otimizar o desempenho e a acurácia, treinamos novamente o **Modelo K**, definido o parâmetro “input_shape”=(128,128,3)”:
 
+```
+
+```
+
 ![image](https://github.com/guiajf/malaria/assets/152413615/4f63d711-851d-47d2-b55b-ca342f5167ab)
 
 Então obtivemos uma *acurácia* de **0.9870** com os dados de teste, desempenho superior ao índice de referência e aos resultados de todos os modelos testados. Significa que, se o modelo faz 100 predições, acerta 98 (ou quase 99) delas. Portanto, a performance do modelo com os dados de teste pode ser considerada excelente.
+
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/ccba8a5f-e6dc-4b36-a17f-06e77e53cedb)
 
