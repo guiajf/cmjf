@@ -353,6 +353,18 @@ Fizemos as predições com os dados de teste, foi obtida acurácia de **0.89**:
 y_pred = model.predict(X_test)
 y_pred = y_pred.astype(int).reshape(-1,)
 y_test = y_test.astype(int).reshape(-1,)
+
+from sklearn.metrics import classification_report
+print(classification_report(y_test, y_pred))
+
+              precision    recall  f1-score   support
+
+           0       0.82      1.00      0.90      2993
+           1       1.00      0.78      0.88      2993
+
+    accuracy                           0.89      5986
+   macro avg       0.91      0.89      0.89      5986
+weighted avg       0.91      0.89      0.89      5986
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/ed68a064-4d63-4ac3-9ee5-3e3d0a2f0ded)
