@@ -375,7 +375,7 @@ O **Modelo K** utilizando, também baseado no método de *transfer learning*, fo
 Paulo Morillo (2020) - *“The transfer learning experience with VGG16 and Cifar 10 dataset”*,
 [publicado](https://medium.com/analytics-vidhya/the-transfer-learning-experience-with-vgg16-and-cifar-10-dataset-9b25b306a23f#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjU1YzE4OGE4MzU0NmZjMTg4ZTUxNTc2YmE3MjgzNmUwNjAwZThiNzMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTIyMDEyMjQ4ODg4NjA2ODUyMTQiLCJlbWFpbCI6Imd1aWxoZXJtZWZlcnJlaXJhamZAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5iZiI6MTcwODc3ODIzOSwibmFtZSI6Ikd1aWxoZXJtZSBGZXJyZWlyYSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NKR0o2bklmTTJ5NzFwc3FBTXhwc1VDVGYxYWtIb0JqYTdRaWxWMkVuV3lBTG89czk2LWMiLCJnaXZlbl9uYW1lIjoiR3VpbGhlcm1lIiwiZmFtaWx5X25hbWUiOiJGZXJyZWlyYSIsImxvY2FsZSI6InB0LUJSIiwiaWF0IjoxNzA4Nzc4NTM5LCJleHAiOjE3MDg3ODIxMzksImp0aSI6ImZkMWQyMTFkZDdmNDljNDE4NTUyMDkyYjYzMTc3YjA3ZTNlZWE0Y2MifQ.mT1984ehe7pi_As4EgmWT3871PGEpWgkACbrLt5zgpXyE76XK4semYcUh1A8QYGRmVasSU5dFzU0uUNS1WD4GCSFuYK74q8JQ7cJnmQWmVDr2-dj0yWCRUV3XU5FdxwuFFeZz-DxOzOsH1fQ1SD8i9AscZ6hZuOA9owZ0fphQQc_tc-Di-cpBB3zTBJWmUxlfuNgCzuOLL9LLQgi0QCWDPsSEJXfIumJx60dwN-3Y5yjZSbw567brt-cV65B5O4oSw6Pb0i46neQ-6HefvpKRaa-2KpgFz-Yz2hQJzPKnVWCynmkmrn6fEYLm3cqpVGdJW5Btu2m9NBkSEvF1b11OQ) em Analytics Vidhya, em 03/07/2020.
 
-Realizamos o preprocessamento dos dados e definimos o modelo:
+Realizamos o preprocessamento dos dados:
 
 ```
 import numpy as np
@@ -452,7 +452,38 @@ Aumentar a resolução também aumenta o custo computacional. Modelos maiores de
 
 ## Considerações finais
 
-As decisões foram tomadas de forma balanceada, incluindo o decaimento da taxa de aprendizagem, experimentações com diferentes resoluções e o armazenamento do melhor modelo. 
+A arquitetura foi definida de forma balanceada, incluindo o decaimento da taxa de aprendizagem, experimentações com diferentes resoluções e o armazenamento do melhor modelo:
+
+```
+model= K.Sequential()
+model.add(K.layers.UpSampling2D())
+model.add(base_model)
+model.add(K.layers.Flatten())
+model.add(K.layers.Dense(512, activation=('relu')))
+model.add(K.layers.Dropout(0.2))
+model.add(K.layers.Dense(256, activation=('relu')))
+model.add(K.layers.Dropout(0.2))
+model.add(K.layers.Dense(2, activation=('sigmoid')))
+callback = []
+def decay(epoch):
+    """ This method create the alpha"""
+    return 0.001 / (1 + 1 * 20)
+callback += [K.callbacks.LearningRateScheduler(decay, verbose=1)]
+callback += [K.callbacks.ModelCheckpoint('malaria_K2.h5',
+                                          save_best_only=True,
+                                          mode='min'
+                                          )]
+model.compile(optimizer='adam', loss='binary_crossentropy',
+              metrics=['accuracy'])
+
+history = model.fit(x=X_train_p, y=Y_train_p,
+          batch_size=32,
+          validation_data=(X_val_p, Y_val_p),
+          epochs=20, shuffle=True,
+          callbacks=callback,
+          verbose=1
+          )
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/30c4b04a-a25a-4ce6-88a1-27a923cbffa6)
 
