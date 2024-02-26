@@ -63,6 +63,14 @@ através do seguinte comando:
 
 Extraímos o conteúdo do arquivo compactado no Google Drive, com o comando:
 
+```
+# Extrair conteúdo dos arquivos comprimidos
+local_zip = '/content/drive/MyDrive/ELT579/Problema4/cell_images.zip'
+zip_ref = zipfile.ZipFile(local_zip, 'r')
+zip_ref.extractall('/content/drive/MyDrive/ELT579/Problema4')
+zip_ref.close()
+```
+
 ![image](https://github.com/guiajf/malaria/assets/152413615/c0aca8ac-6d69-4969-b1c5-a2d61dc023e9)
 
 O modelo base foi reproduzido com algumas modificações, utilizando o dataset completo de 27.558 imagens. O número de neurônios na terceira camada convolucional foi aumentado para 64, enquanto as duas primeiras continuaram com 32. Foram adicionadas mais duas camadas convolucionais: a quarta com 64 neurônios e a quinta com 128. As características de pooling e dropout das novas camadas convolucionais permaneceram inalteradas. Os parâmetros treináveis foram reduzidos para 533.922.
