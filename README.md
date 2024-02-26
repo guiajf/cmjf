@@ -77,9 +77,20 @@ O modelo base foi reproduzido com algumas modificações, utilizando o dataset c
 
 O *dataset* foi separado em conjuntos de treinamento, validação e teste:
 
+```
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 0)
+X_train, X_val, y_train, y_val  = train_test_split(X_train, y_train, test_size=0.20, random_state=0)
+```
+
 ![image](https://github.com/guiajf/malaria/assets/152413615/91b716a1-6533-418d-b162-3e105da0a2a0)
 
 O modelo foi ajustado em 100 épocas:
+
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/b89cbf25-8e7e-4d50-8ffc-f91dd69b94b4)
 
