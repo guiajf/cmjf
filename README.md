@@ -342,7 +342,7 @@ Non-trainable params: 14714688 (56.13 MB)
 Realizamos o ajuste do modelo em 50 épocas:
 
 ```
-
+model.fit(X_train, y_train, batch_size=32, epochs=50)
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/a37d330b-26c5-42dd-9cfa-613b3474ef65)
@@ -350,7 +350,9 @@ Realizamos o ajuste do modelo em 50 épocas:
 Fizemos as predições com os dados de teste, foi obtida acurácia de **0.89**:
 
 ```
-
+y_pred = model.predict(X_test)
+y_pred = y_pred.astype(int).reshape(-1,)
+y_test = y_test.astype(int).reshape(-1,)
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/ed68a064-4d63-4ac3-9ee5-3e3d0a2f0ded)
@@ -362,6 +364,10 @@ Paulo Morillo (2020) - *“The transfer learning experience with VGG16 and Cifar
 [publicado](https://medium.com/analytics-vidhya/the-transfer-learning-experience-with-vgg16-and-cifar-10-dataset-9b25b306a23f#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjU1YzE4OGE4MzU0NmZjMTg4ZTUxNTc2YmE3MjgzNmUwNjAwZThiNzMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTIyMDEyMjQ4ODg4NjA2ODUyMTQiLCJlbWFpbCI6Imd1aWxoZXJtZWZlcnJlaXJhamZAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5iZiI6MTcwODc3ODIzOSwibmFtZSI6Ikd1aWxoZXJtZSBGZXJyZWlyYSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NKR0o2bklmTTJ5NzFwc3FBTXhwc1VDVGYxYWtIb0JqYTdRaWxWMkVuV3lBTG89czk2LWMiLCJnaXZlbl9uYW1lIjoiR3VpbGhlcm1lIiwiZmFtaWx5X25hbWUiOiJGZXJyZWlyYSIsImxvY2FsZSI6InB0LUJSIiwiaWF0IjoxNzA4Nzc4NTM5LCJleHAiOjE3MDg3ODIxMzksImp0aSI6ImZkMWQyMTFkZDdmNDljNDE4NTUyMDkyYjYzMTc3YjA3ZTNlZWE0Y2MifQ.mT1984ehe7pi_As4EgmWT3871PGEpWgkACbrLt5zgpXyE76XK4semYcUh1A8QYGRmVasSU5dFzU0uUNS1WD4GCSFuYK74q8JQ7cJnmQWmVDr2-dj0yWCRUV3XU5FdxwuFFeZz-DxOzOsH1fQ1SD8i9AscZ6hZuOA9owZ0fphQQc_tc-Di-cpBB3zTBJWmUxlfuNgCzuOLL9LLQgi0QCWDPsSEJXfIumJx60dwN-3Y5yjZSbw567brt-cV65B5O4oSw6Pb0i46neQ-6HefvpKRaa-2KpgFz-Yz2hQJzPKnVWCynmkmrn6fEYLm3cqpVGdJW5Btu2m9NBkSEvF1b11OQ) em Analytics Vidhya, em 03/07/2020.
 
 Realizamos o preprocessamento dos dados e definimos o modelo:
+
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/091bfa5b-f150-41cd-9998-0c678f6a9c0a)
 
@@ -407,6 +413,10 @@ As decisões foram tomadas de forma balanceada, incluindo o decaimento da taxa d
 ![image](https://github.com/guiajf/malaria/assets/152413615/30c4b04a-a25a-4ce6-88a1-27a923cbffa6)
 
 Ao avaliarmos o **Modelo K** com os dados de teste, obtivemos *acurácia* de **0.9846**:
+
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/41e5dc51-d781-461a-886a-9e4e5b3f4ace)
 
