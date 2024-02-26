@@ -181,7 +181,20 @@ def train_model(X_train, y_train, conv_nodes, dense_nodes, dropout_prob, lr, bat
 
 Foram testados diferentes hiperparâmetros, e o modelo com o menor valor de função custo foi armazenado.:
 ```
-
+least_val_loss = float('inf')
+least_loss_model = None
+epochs=100
+for conv_nodes in [32, 64, 128]:
+  for dense_nodes in [256, 512]:
+    for dropout_prob in [0, 0.2]:
+     for lr in [0.01, 0.001, 0.005]:
+        for batch_size in [32, 64, 128]:
+            print(f"conv nodes {conv_nodes}, dense nodes {dense_nodes}, fc_nodes dropout {dropout_prob}, lr {lr}, batch size {batch_size}")
+            model, history = train_model(X_train, y_train, conv_nodes, dense_nodes, dropout_prob, lr, batch_size, epochs)
+            val_loss = model.evaluate(X_val, y_val)[0]
+            if val_loss < least_val_loss:
+              least_val_loss = val_loss
+              least_loss_model = model
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/303b895d-e5ab-4918-b46e-8b55a063f3a7)
@@ -189,9 +202,17 @@ Foram testados diferentes hiperparâmetros, e o modelo com o menor valor de fun�
 
 Salvamos e carregamos o modelo:
 
+```
+
+```
+
 ![image](https://github.com/guiajf/malaria/assets/152413615/c693495e-b925-48f3-a9a6-0bec795087ac)
 
 Ao avaliar o modelo com os dados de teste, obteve-se uma acurácia de **0.94**.
+
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/6164b8a2-708a-44f7-ba9e-6cb05df2226b)
 
