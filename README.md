@@ -247,8 +247,12 @@ Adaptamos o exemplo deste [notebook](https://colab.research.google.com/github/Ma
 
 Importamos as bibliotecas necessárias:
 
-```
-
+``from keras.applications.vgg16 import VGG16, preprocess_input
+from keras.models import Model, Sequential
+from keras.layers import Lambda, Input
+from keras.optimizers import Adam
+from keras.layers import Dense, Dropout, Flatten
+from keras.preprocessing.image import ImageDataGenerator`
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/a4d85130-9719-4531-b965-a45bb98f9b7d)
@@ -257,16 +261,30 @@ Carregamos o modelo **VGG16** sem as últimas camadas totalmente conectadas (inc
 Redimensionamos as imagens de entrada para o tamanho esperado pelo modelo VGG16 e, em seguida, passamos essas imagens pelo modelo pré-treinado para obter as saídas correspondentes:
 
 ```
+# Carregamos o modelo VGG16 sem as últimas camadas totalmente conectadas (include_top=False)
+pre_model = VGG16(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
 
+newInput = Input(batch_shape=(None, 64, 64, 3))
+resizedImg = Lambda(lambda image: tf.compat.v1.image.resize_images(image, (224, 224)))(newInput)
+newOutputs = pre_model(resizedImg)
+pre_model = Model(newInput, newOutputs)
 ```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/5801d7b5-9590-4e69-9d21-ed5855fed48a)
 
 Fazemos com que as camadas do modelo pré-treinado não sejam alteradas durante o treino:
 
+```
+
+```
+
 ![image](https://github.com/guiajf/malaria/assets/152413615/29b6a1b0-2dea-4135-a27f-dcd7acb10bf0)
 
 Criamos o modelo sequencial, com o **VGG16** acompanhado de novas camadas conectadas:
+
+```
+
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/05a91e41-d6b3-4cb4-b457-8f42ab631b07)
 
