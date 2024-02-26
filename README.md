@@ -36,14 +36,11 @@ Observou-se que a partir da 40ª época, a performance estabilizou, sem melhoria
 
 A acurácia do modelo com os dados de teste foi de **0.95**, ligeiramente abaixo do índice base.
 
-´´´_,score = model.evaluate(X_test, y_test)
-
+```_,score = model.evaluate(X_test, y_test)
 print(score)
-
 13/13 [==============================] - 0s 4ms/step - loss: 0.4626 - accuracy: 0.9500
-
 0.949999988079071
-´´´
+```
 
 ![image](https://github.com/guiajf/malaria/assets/152413615/3f4e5750-1921-4f0f-bd70-36480136be7a)
 
