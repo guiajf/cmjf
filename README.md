@@ -3,7 +3,7 @@
 ## Introdução
 
 
-Um modelo de rede neural convolucional foi implementado para detectar o *Plasmodium*, o parasita responsável pela transmissão da malária, em um conjunto de imagens de células sanguíneas, especificamente das hemácias.
+Modelos de rede neural convolucional foram implementados para detectar o *Plasmodium*, parasita responsável pela transmissão da malária, em um conjunto de imagens de células sanguíneas, especificamente das hemácias.
 
 A malária é uma infecção dos glóbulos vermelhos do sangue causada por uma das cinco espécies de protozoários *Plasmodium*.
 
