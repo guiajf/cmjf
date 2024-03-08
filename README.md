@@ -484,7 +484,7 @@ Para otimizar o desempenho e a acurácia, treinamos novamente o **Modelo K**, de
 
 
 
-Então obtivemos uma *acurácia* de **0.9870** com os dados de teste, desempenho superior ao índice de referência e aos resultados de todos os modelos testados. Significa que, se o modelo faz 100 predições, acerta 98 (ou quase 99) delas. Portanto, a performance do modelo com os dados de teste pode ser considerada excelente.
+Então obtivemos uma *acurácia* de **0.9870** com os dados de teste, desempenho superior ao índice de referência e aos resultados de todos os modelos testados. Significa que, se o modelo faz 100 predições, acerta entre 98 e 99 delas. Portanto, a performance do modelo com os dados de teste pode ser considerada excelente.
 
 ```
 score = model.evaluate(X_test_p, Y_test_p)
@@ -504,30 +504,3 @@ Test accuracy: 0.9869695901870728
 **Créditos**
 
 *Este projeto é resultado das modificações feitas no modelo base desenvolvido pelo [Professor Sárvio Valente](https://sarvio.com.br/), da disciplina "Tópicos Especiais em Inteligência Artificial", do Curso de Pós-Graduação em Inteligência Artificial e Computacional da Universidade Federal de Viçosa. O objetivo é aprimorar as predições em um problema de classificação binária.*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
